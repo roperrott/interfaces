@@ -1,19 +1,20 @@
 //Ejercicio 3
 //Pintar una región rectangular de un color utilizando la estructura de ImageData. 
 
-let canvas = document.getElementById("canvas");
+let canvas = document.getElementById("canvas1");
 let ctx2 = canvas.getContext("2d");
 
 let width = canvas.width;
 let height = canvas.height;
 
-let r = 255;
-let g = 50;
-let b = 0;
-let a = 1; // 
+
 let imageData = ctx2.createImageData(width, height); 
 //nos devuelve un objeto ImageData, que representa un arreglo vacio
 
+let r = 255;
+let g = 0;
+let b = 255;
+let a = 255; 
 drawRect(imageData, r, g, b, a);
 //para que un valor sea gris todos los valores deben ser iguales
 //dibujar rectangulo
@@ -22,7 +23,9 @@ let x = 0;
 let y = 0;
 
 ctx2.putImageData(imageData, x, y, r, g, b, a) * 4;
+
 function drawRect(imageData, r, g, b, a){
+
     //recorre todo el canvas, x --> ancho
     for(let x = 0; x < width; x++){
         for(let y = 0; y < height; y++){
