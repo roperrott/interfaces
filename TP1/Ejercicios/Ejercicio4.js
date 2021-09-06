@@ -44,3 +44,18 @@ function setPixel(imageData, x, y, r, g, b, a){
     imageData.data[index + 3] = a;
 }
 
+//Ejercicio 5
+//Pintar un rectángulo en pantalla, utilizando tres colores en un gradiente: 
+//De negro a amarillo en la primera mitad del ancho del rectángulo, 
+//y de amarillo a rojo, en la segunda mitad. Por otro lado, en 
+//Y el degrade se mantiene constante. 
+
+
+//Ejercicio 6
+//Pintar un rectángulo en pantalla, utilizando tres o cuatro colores en un gradiente. 
+//Los tres colores deben ser armonías tonales. Puede ser en el eje X o Y.
+
+//Ejercicio 7
+//Cargar una Imagen desde disco o URL 
+//a. Dibujar la imagen dentro del canvas 
+//b. Implementar una función que aplique el filtro de escala de grises y muestre el resultado en el canvas. 
