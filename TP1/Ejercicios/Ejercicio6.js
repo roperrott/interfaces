@@ -1,5 +1,7 @@
-//Ejercicio 4
-//Especificar la función para pintar un cuadrado utilizando un gradiente de la siguiente forma: 
+//Ejercicio 6
+//Pintar un rectángulo en pantalla, utilizando tres o cuatro colores en un gradiente. 
+//Los tres colores deben ser armonías tonales. Puede ser en el eje X o Y.
+
 
 let canvas = document.getElementById("canvas");
 let ctx2 = canvas.getContext("2d");
