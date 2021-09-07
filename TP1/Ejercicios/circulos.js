@@ -11,10 +11,16 @@ let height = canvas.height;
 for(let index = 0; index < 20; index++){
     ctx2.fillStyle = randomRGBA();
     ctx2.beginPath();
-    ctx2.arc(Math.round(Math.random() * width), Math.round(Math.random() * height), 20, 0, 2 * Math.PI);
+    ctx2.arc(Math.round(Math.random() * width), Math.round(Math.random() * height), Math.round(Math.random() * 20), 0, 2 * Math.PI);
     ctx2.fill();
     ctx2.closePath();
 }
+
+for(let index = 0; index < 20; index++){
+    ctx2.fillStyle = randomRGBA();
+    ctx2.fillRect(Math.random() * width, Math.round(Math.random() * height), Math.round(Math.random() * 50), Math.round(Math.random() * 50));
+}
+
 
 function randomRGBA(){
     let r = Math.round(Math.random() * 255);
