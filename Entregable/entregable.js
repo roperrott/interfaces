@@ -5,7 +5,8 @@
 
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
-//nos devuelve el left y el top con respecto a la pantalla donde esta el canvas. Para determinar las coordenadas
+// getBoundingClientRect nos devuelve el left y el top con respecto a la pantalla donde esta el canvas.
+// Para determinar las coordenadas
 let position = canvas.getBoundingClientRect(); 
 let x = 0;
 let y = 0;
@@ -21,12 +22,10 @@ function rangeDefinition(r){
     range = r;
 }
 
-
 // let btnNewCanva = document.getElementById('newCanva');
 // btnNewCanva.addEventListener(()=>{
     
 // });
-
 
 
 let btnDraw = document.getElementById('pencil');
@@ -43,7 +42,7 @@ btnDraw.addEventListener("click", function(e){
 
     //cuando se mueve
     //e.client - position primero es mi posicion actual 
-    //luego en la siguiente linea actualizo mis coordenadas de partida
+    //luego en la siguiente linea actualizo mis coordenadas de las que parto
     canvas.onmousemove = function(e){
         if(drawing == true){
             draw(x, y, e.clientX - position.left, e.clientY - position.top);
@@ -53,7 +52,8 @@ btnDraw.addEventListener("click", function(e){
     };
 
     //cuando deja de dibujar
-    //if drawing dibujo la ultima recta de la linea
+    //if drawing es true dibujo la ultima recta de la linea
+    //y luego actualizo los valores
     canvas.onmouseup = function(e) {
         if(drawing == true){
             draw(x, y, e.clientX - position.left, e.clientY - position.top);
@@ -63,6 +63,11 @@ btnDraw.addEventListener("click", function(e){
         }
     };
 
+    //funcion que dibuja el trazo ante unas coordenadas iniciales
+    // y unas finales
+    // moveTo muevo el puntero a esas coordenadas
+    //el lineTo dibuja una linea hasta esos valores
+    //stroke 
     function draw(x1, y1, x2, y2){
         ctx.beginPath();
         ctx.strokeStyle = color;
