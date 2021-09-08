@@ -11,7 +11,7 @@
 <body>
     <header>
         <div id="icons">
-            <div class="icon" id="new-canva">  
+            <div class="icon" id="newCanva">  
                 <i class="far fa-plus-square"></i>
             </div>
             <div class="icon" id="pencil">
@@ -19,7 +19,10 @@
             </div>
            
             <div id="colors">
-              <input type="color">
+              <input type="color" id="inputColor" oninput="colorDefinition(this.value);">
+            </div>
+            <div>
+                <input type="range" id="inputRange" oninput="rangeDefinition(this.value);" min="1" max="10" value="1">
             </div>
             
             <div class="icon" id="eraser">
@@ -41,6 +44,6 @@
 
     </footer>
     
-    <script src="Ejercicio4.js"></script>   
+    <script src="entregable.js"></script>   
 </body>
 </html>
