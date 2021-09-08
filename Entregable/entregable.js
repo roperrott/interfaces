@@ -16,3 +16,8 @@
 // 5. Permitir guardar en disco la imagen, o descartar la imagen y 
 //comenzar con un lienzo vacío.
 
+let btnNewCanva = document.getElementById('new-canva');
+btnNewCanva.addEventListener(()=>{
+    
+});
+

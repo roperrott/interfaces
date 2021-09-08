@@ -44,7 +44,6 @@ function drawRect(imageData, r, g, b, a){
             a = 255;
         }
        
-
         for(let y = 0; y < height; y++){
             // el color vaya cambiando de acuerdo a cada iteracion en proporcion de nuestra altura
             setPixel(imageData, x, y, r, g, b, a);

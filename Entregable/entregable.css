@@ -1,0 +1,64 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+header{
+    width: 100%;
+    padding: 20px 0px;
+    background-color: rgba(238, 228, 228, 0.808);
+    display: flex;
+    justify-content: center;
+}
+
+#icons{
+    display: flex;
+    flex-direction: row;
+}
+.icon{
+    margin: 5px;
+    padding: 5px;
+    border-style: solid;
+    border-color: black;
+}
+
+#red{
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    margin: 7px;
+}
+#yellow{
+    width: 25px;
+    height: 25px;
+    background-color: yellow;
+    margin: 7px;
+}
+#green{
+    width: 25px;
+    height: 25px;
+    background-color: green;
+    margin: 7px;
+}
+#blue{
+    width: 25px;
+    height: 25px;
+    background-color: blue;
+    margin: 7px;
+}
+
+#colors{
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+#canv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
