@@ -22,13 +22,14 @@ window.addEventListener('load', ()=>{
     document.getElementById('inputRange').addEventListener('input', (e) => rangeDefinition(e));
 
     function colorDefinition(e){
-        console.log(e.currentTarget.value);
         color = e.currentTarget.value;
     };
 
     function rangeDefinition(e){
         range = e.currentTarget.value;
     }
+
+
 
     // let btnNewCanva = document.getElementById('newCanva');
     // btnNewCanva.addEventListener(()=>{
@@ -38,14 +39,14 @@ window.addEventListener('load', ()=>{
 
     let btnDraw = document.getElementById('pencil');
     btnDraw.addEventListener("click", function(e){
-
+  
         //cuando hace click, el e trae los valores donde hizo click el usuario en la pantalla
         // a la posicion en x e y sobre la pantalla le resto la posicion donde esta mi canvas
         canvas.onmousedown = function(e){
-            drawing = true;
             x = e.clientX - position.left;
             y = e.clientY - position.top;
             drawing = true;
+            draw(x, y, x, y); 
         };
 
         //cuando se mueve
@@ -80,6 +81,8 @@ window.addEventListener('load', ()=>{
         function draw(x1, y1, x2, y2){
             if(drawing == true){
                 ctx.beginPath();
+                ctx.lineCap = "round";
+                ctx.lineJoin = "round";
                 ctx.strokeStyle = color;
                 ctx.lineWidth = range;
                 ctx.moveTo(x1, y1);
@@ -89,9 +92,19 @@ window.addEventListener('load', ()=>{
             }else{
                 return;
             }
-           
+
         }
     });
+
+    document.getElementById('clear').addEventListener('click', (e)=> clearCanvas());
+
+    function clearCanvas(){
+        console.log("in");
+        ctx.fillStyle = "white";
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
 
     // let btnErase = document.getElementById('eraser');
     // btnErase.addEventListener(()=>{

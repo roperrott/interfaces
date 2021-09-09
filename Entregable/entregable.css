@@ -2,6 +2,7 @@
 *{
     box-sizing: border-box;
     margin: 0;
+    cursor: pointer;
 }
 
 
@@ -13,15 +14,19 @@ header{
     justify-content: center;
 }
 
-#icons{
+.icons-div{
+    width: 240px;
     display: flex;
     flex-direction: row;
+    padding: 10px;
+    align-items: center;
 }
 .icon{
-    margin: 5px;
-    padding: 5px;
+    margin: 10px;
+    padding: 10px;
     border-style: solid;
     border-color: black;
+    display: inline-block;
 }
 
 #red{
