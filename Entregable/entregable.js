@@ -135,11 +135,28 @@ window.addEventListener('load', ()=>{
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
-    let myImage = new Image();
-    myImage.src = ".jpg";
-    myImage.onload = function(){
-        canvas.drawImage(myImage,0,0);
-    }
+    
+    let modalContainer = document.getElementById('modal-container');
+    let uploadImage = document.getElementById('upload-image');
+
+    let btnNewImage = document.getElementById('newImage');
+    btnNewImage.addEventListener('click', () => {
+        console.log("in");
+        modalContainer.classList.add('show');
+    });
+
+    uploadImage.addEventListener('click', ()=>{
+        modalContainer.classList.remove('show');
+        //cargar en canvas
+
+          // let myImage = new Image();
+        // myImage.src = ".jpg";
+        // myImage.onload = function(){
+        //     canvas.drawImage(myImage,0,0);
+        // }
+    });
+
+  
 
     // 3. Aplicar al menos cuatro filtros a la imagen actual, 
     //por ejemplo: negativo, brillo, binarización y sepia.

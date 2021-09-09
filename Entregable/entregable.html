@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="icons-div">
-            <div class="icon" id="newCanva">  
+            <div class="icon" id="newImage">  
                 <i class="far fa-plus-square"></i>
             </div>
             <div class="icon" id="pencil">
@@ -44,10 +44,12 @@
     <div id="canv">
         <canvas id="canvas" width="1200" height="600" style="border:1px solid black;"></canvas>
     </div>
-    <div id="pop-up">
-        <h4>Seleccionar archivo</h4>
-        <button>Seleccionar imagen</button>
-        <button >Lienzo en blanco</button>
+    <div class="modal-container" id="modal-container">
+        <div class="modal">
+            <h2 class="modal-item">Seleccione Imagen</h2>
+            <input class="modal-item" type="file" name="image" id="">
+            <button id='upload-image' class="modal-item">Subir</button>
+        </div>
     </div>
 
     <footer>
