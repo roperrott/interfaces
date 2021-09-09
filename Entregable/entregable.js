@@ -14,24 +14,57 @@ window.addEventListener('load', ()=>{
     let y = 0;
     let drawing = false;
     let color = "black";
+    let colorPencil = "black";
     let range = 1;
+    let rangeColor = 1;
+    let rangeEraser = 1;
     canvas.height = 600;
     canvas.width = 1200;
 
-    document.getElementById('inputColor').addEventListener('input', (e) => colorDefinition(e));
-    document.getElementById('inputRange').addEventListener('input', (e) => rangeDefinition(e));
+    let btnColor = document.getElementById('inputColor');
+    btnColor.addEventListener('input', (e) => colorDefinition(e));
+
+    let btnRange = document.getElementById('inputRangeColor');
+    btnRange.addEventListener('input', (e) => rangeDefinitionColor(e));
+
+    let btnRangeEraser =  document.getElementById('inputRangeEraser');
+    btnRangeEraser.addEventListener('input', (e) => rangeDefinitionEraser(e));
 
     function colorDefinition(e){
-        color = e.currentTarget.value;
+        colorPencil = e.currentTarget.value;
+        color = colorPencil;
     };
 
-    function rangeDefinition(e){
-        range = e.currentTarget.value;
+    function rangeDefinitionColor(e){
+        rangeColor = e.currentTarget.value;
+        range = rangeColor;
+    }
+
+    function rangeDefinitionEraser(e){
+        rangeEraser = e.currentTarget.value;
+        range = rangeEraser;
+    }
+
+    let btnDraw = document.getElementById('pencil');
+    btnDraw.addEventListener("click", (e) => selectPencil(e));
+
+    //selecciona el lapiz y setea color y rango
+    function selectPencil(e){
+        color = colorPencil;
+        range = rangeColor;
+        drawOnCanvas(e);
     }
 
 
-    let btnDraw = document.getElementById('pencil');
-    btnDraw.addEventListener("click", function(e){
+    //Borra, selecciona el color blanco y el rango seleccionado
+    let btnErase = document.getElementById('eraser');
+    btnErase.addEventListener('click', (e)=> {
+        color = "white";
+        range = rangeEraser;
+        drawOnCanvas(e);
+    });
+
+    function drawOnCanvas(e){
   
         //cuando hace click, el e trae los valores donde hizo click el usuario en la pantalla
         // a la posicion en x e y sobre la pantalla le resto la posicion donde esta mi canvas
@@ -87,7 +120,11 @@ window.addEventListener('load', ()=>{
             }
 
         }
-    });
+    };
+
+    // 2. Permitir iniciar con un lienzo en blanco, 
+    //o partir de una imagen que será cargada desde disco 
+    //(Usar un diálogo para elegir la imagen)
 
     //Limpia el lienzo
     document.getElementById('clear').addEventListener('click', (e)=> clearCanvas());
@@ -98,22 +135,11 @@ window.addEventListener('load', ()=>{
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 
-    function erase(){
-        x = e.clientX - position.left;
-        y = e.clientY - position.top;
-    
-    }
-
-
-    //Borra
-    // let btnErase = document.getElementById('eraser');
-    // btnErase.addEventListener(()=>{
-        
-    // });
-
-    // 2. Permitir iniciar con un lienzo en blanco, 
-    //o partir de una imagen que será cargada desde disco 
-    //(Usar un diálogo para elegir la imagen)
+    // let myImage = new Image();
+    // myImage.src = ".jpg";
+    // myImage.onload = function(){
+    //     canvas.drawImage(myImage,);
+    // }
 
     // 3. Aplicar al menos cuatro filtros a la imagen actual, 
     //por ejemplo: negativo, brillo, binarización y sepia.
