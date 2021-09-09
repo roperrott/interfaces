@@ -38,12 +38,12 @@ window.addEventListener('load', ()=>{
     function rangeDefinitionColor(e){
         rangeColor = e.currentTarget.value;
         range = rangeColor;
-    }
+    };
 
     function rangeDefinitionEraser(e){
         rangeEraser = e.currentTarget.value;
         range = rangeEraser;
-    }
+    };
 
     let btnDraw = document.getElementById('pencil');
     btnDraw.addEventListener("click", (e) => selectPencil(e));
@@ -53,7 +53,7 @@ window.addEventListener('load', ()=>{
         color = colorPencil;
         range = rangeColor;
         drawOnCanvas(e);
-    }
+    };
 
 
     //Borra, selecciona el color blanco y el rango seleccionado
@@ -69,8 +69,9 @@ window.addEventListener('load', ()=>{
         //cuando hace click, el e trae los valores donde hizo click el usuario en la pantalla
         // a la posicion en x e y sobre la pantalla le resto la posicion donde esta mi canvas
         canvas.onmousedown = function(e){
-            x = e.clientX - position.left;
-            y = e.clientY - position.top;
+            console.log(e);
+            x = e.x - position.left;
+            y = e.y - position.top;
             drawing = true;
             draw(x, y, x, y); 
         };
@@ -118,7 +119,6 @@ window.addEventListener('load', ()=>{
             }else{
                 return;
             }
-
         }
     };
 
@@ -133,13 +133,13 @@ window.addEventListener('load', ()=>{
         ctx.fillStyle = "white";
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
+    };
 
-    // let myImage = new Image();
-    // myImage.src = ".jpg";
-    // myImage.onload = function(){
-    //     canvas.drawImage(myImage,);
-    // }
+    let myImage = new Image();
+    myImage.src = ".jpg";
+    myImage.onload = function(){
+        canvas.drawImage(myImage,0,0);
+    }
 
     // 3. Aplicar al menos cuatro filtros a la imagen actual, 
     //por ejemplo: negativo, brillo, binarización y sepia.
