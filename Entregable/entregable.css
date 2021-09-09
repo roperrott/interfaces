@@ -2,8 +2,8 @@
 *{
     box-sizing: border-box;
     margin: 0;
-    cursor: pointer;
 }
+
 
 
 header{
@@ -69,3 +69,4 @@ header{
     justify-content: center;
     margin: 10px 0px;
 }
+

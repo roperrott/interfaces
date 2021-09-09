@@ -30,13 +30,6 @@ window.addEventListener('load', ()=>{
     }
 
 
-
-    // let btnNewCanva = document.getElementById('newCanva');
-    // btnNewCanva.addEventListener(()=>{
-        
-    // });
-
-
     let btnDraw = document.getElementById('pencil');
     btnDraw.addEventListener("click", function(e){
   
@@ -96,16 +89,23 @@ window.addEventListener('load', ()=>{
         }
     });
 
+    //Limpia el lienzo
     document.getElementById('clear').addEventListener('click', (e)=> clearCanvas());
 
     function clearCanvas(){
-        console.log("in");
         ctx.fillStyle = "white";
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 
+    function erase(){
+        x = e.clientX - position.left;
+        y = e.clientY - position.top;
+    
+    }
 
+
+    //Borra
     // let btnErase = document.getElementById('eraser');
     // btnErase.addEventListener(()=>{
         
