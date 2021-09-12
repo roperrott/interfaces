@@ -55,8 +55,6 @@ button{
     text-align: center;
 }
 
-
-
 .modal-item{
     padding: 10px;
 }
@@ -70,7 +68,7 @@ header{
 }
 
 .icons-div{
-    width: 240px;
+    width: auto;
     display: flex;
     flex-direction: row;
     padding: 10px;
@@ -84,29 +82,10 @@ header{
     display: inline-block;
 }
 
-#red{
-    width: 25px;
-    height: 25px;
-    background-color: red;
-    margin: 7px;
-}
-#yellow{
-    width: 25px;
-    height: 25px;
-    background-color: yellow;
-    margin: 7px;
-}
-#green{
-    width: 25px;
-    height: 25px;
-    background-color: green;
-    margin: 7px;
-}
-#blue{
-    width: 25px;
-    height: 25px;
-    background-color: blue;
-    margin: 7px;
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
 #colors{

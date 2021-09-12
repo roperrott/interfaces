@@ -147,15 +147,22 @@ window.addEventListener('load', ()=>{
 
     uploadImage.addEventListener('click', ()=>{
         modalContainer.classList.remove('show');
-        //cargar en canvas
-
-          // let myImage = new Image();
-        // myImage.src = ".jpg";
-        // myImage.onload = function(){
-        //     canvas.drawImage(myImage,0,0);
-        // }
     });
 
+    //cargar en canvas
+   
+
+    document.getElementById('newImage').addEventListener('input', (e)=> {
+        let myImage = new Image(); 
+        myImage.src = e.currentTarget.src.value;
+        document.getElementById('upload-image').addEventListener('click', () =>{
+        
+            myImage.addEventListener('load', ()=>{
+                canvas.drawImage(myImage, 0,0);
+            });
+        });
+       
+    });
   
 
     // 3. Aplicar al menos cuatro filtros a la imagen actual, 
