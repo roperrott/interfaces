@@ -135,7 +135,6 @@ window.addEventListener('load', ()=>{
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
-    
     let modalContainer = document.getElementById('modal-container');
     let uploadImage = document.getElementById('upload-image');
 
@@ -151,8 +150,9 @@ window.addEventListener('load', ()=>{
 
     //cargar en canvas
    
-    let reader = new FileReader()
-    let myImage = new Image()
+    let reader = new FileReader();
+    let myImage = new Image();
+    let data;
 
     let uploadNewImage = e => {
         reader.onload = () => {
@@ -160,6 +160,7 @@ window.addEventListener('load', ()=>{
                // canvas.width = myImage.width; OPCIONAL
                // canvas.height = myImage.height; OPCIONAL
                 ctx.drawImage(myImage, 0, 0);
+                data = ctx.getImageData(0, 0, canvas.width, canvas.height);
             };
             myImage.src = reader.result
         };
@@ -184,6 +185,50 @@ window.addEventListener('load', ()=>{
     let imageDownloader = document.getElementById('downloader');
     imageDownloader.addEventListener('click', downloadImage);
 
+    // Quitar filtros NO ESTA FUNCIONANDO DEL TODO BIEN
+
+    function removeFilter() {
+        ctx.putImageData(data, 0, 0);
+    }
+
+    let filterRemover = document.getElementById('remove-filter');
+    filterRemover.addEventListener('click', removeFilter);
+
+    // Filtro Sepia
+    // Algoritmo tomado de: https://www.techrepublic.com/blog/how-do-i/how-do-i-convert-images-to-grayscale-and-sepia-tone-using-c/
+    function applySepia() {
+        var imageData = ctx.getImageData(0,0,canvas.width, canvas.height);
+        var data = imageData.data;
+
+        for(var i = 0; i<data.length; i += 4) {
+            data[i] = (data[i] * 0.393) + (data[i+1] * 0.769) + (data[i+2] * 0.189); // R
+            data[i+1] = (data[i] * 0.349) + (data[i+1] * 0.686) + (data[i+2] * 0.168); // G
+            data[i+2] = (data[i] * 0.272) + (data[i+1] * 0.534) + (data[i+2] * 0.131); // B
+        }
+        ctx.putImageData(imageData, 0, 0);
+    }
+
+    let sepiaFilterApplier = document.getElementById('sepia-filter');
+    sepiaFilterApplier.addEventListener('click', applySepia);
+
+    // Filtro negativo
+
+    function applyNegative() {
+        var imageData = ctx.getImageData(0,0,canvas.width, canvas.height);
+        var data = imageData.data;
+
+        for (var i = 0; i<data.length; i += 4) {
+            // El filtro negativo se produce al restar del máximo valor posible (255) el valor del pixel.
+            data[i] = 255 - data[i]; // R
+            data[i+1] = 255 - data[i+1]; // G
+            data[i+2] = 255 - data[i+2]; // B
+        }
+        ctx.putImageData(imageData, 0, 0);
+    }
+
+    let negativeFilterApplier = document.getElementById('negative-filter');
+    negativeFilterApplier.addEventListener('click', applyNegative);
+
 
 
     // 3. Aplicar al menos cuatro filtros a la imagen actual, 
@@ -193,7 +238,5 @@ window.addEventListener('load', ()=>{
     //Saturación, Detección de Bordes, Blur.
 
     // 5. Permitir guardar en disco la imagen, o descartar la imagen y 
-    //comenzar con un lienzo vacío.  -> HECHO <-
-
-
+    //comenzar con un lienzo vacío. 
 });
