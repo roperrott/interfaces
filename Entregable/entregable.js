@@ -151,20 +151,25 @@ window.addEventListener('load', ()=>{
 
     //cargar en canvas
    
+    let reader = new FileReader()
+    let myImage = new Image()
 
-    document.getElementById('newImage').addEventListener('input', (e)=> {
-        let myImage = new Image(); 
-        myImage.src = e.currentTarget.src.value;
-        document.getElementById('upload-image').addEventListener('click', () =>{
-        
-            myImage.addEventListener('load', ()=>{
-                canvas.drawImage(myImage, 0,0);
-            });
-        });
-       
-    });
+    let uploadNewImage = e => {
+        reader.onload = () => {
+            myImage.onload = () => {
+               // canvas.width = myImage.width; OPCIONAL
+               // canvas.height = myImage.height; OPCIONAL
+                ctx.drawImage(myImage, 0, 0);
+            };
+            myImage.src = reader.result
+        };
+        reader.readAsDataURL(e.target.files[0])
+    };
+
+    const imageLoader = document.getElementById('newImageInput');
+    imageLoader.addEventListener('change', uploadNewImage);
+    
   
-
     // 3. Aplicar al menos cuatro filtros a la imagen actual, 
     //por ejemplo: negativo, brillo, binarización y sepia.
 
