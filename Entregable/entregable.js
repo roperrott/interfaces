@@ -274,6 +274,30 @@ window.addEventListener('load', ()=>{
     let blurFilterApplier = document.getElementById('blur-filter');
     blurFilterApplier.addEventListener('click', applyBlur);
 
+    // Filtro Binarización
+    // Información tomada de https://craftofcoding.wordpress.com/2017/02/13/image-binarization-1-introduction/
+    // Se tomará Threshold = 126 
+
+    function applyBinarization() {
+        var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var data = imageData.data;
+
+        for (var i = 0; i<data.length; i += 4) {
+            // Calculo valor del pixel promediando RGB
+            // Si el valor supera el umbral es blanco sino, negro.
+            let value = (data[i] + data[i+1] + data[i+2]) / 3 > 126 ? 255 : 0;
+
+            // Mismo valor para todo el pixel
+            data[i] = value; // R
+            data[i+1] = value; // G
+            data[i+2] = value; // B
+        };
+        ctx.putImageData(imageData, 0, 0);
+    };
+
+    let binarizationFilterApplier = document.getElementById('binary-filter');
+    binarizationFilterApplier.addEventListener('click', applyBinarization);
+
 
     // 3. Aplicar al menos cuatro filtros a la imagen actual, 
     //por ejemplo: negativo, brillo, binarización y sepia.
