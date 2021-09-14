@@ -274,6 +274,112 @@ window.addEventListener('load', ()=>{
     let blurFilterApplier = document.getElementById('blur-filter');
     blurFilterApplier.addEventListener('click', applyBlur);
 
+    // Filtro Binarización
+    // Información tomada de https://craftofcoding.wordpress.com/2017/02/13/image-binarization-1-introduction/
+    // Se tomará Threshold = 126 
+
+    function applyBinarization() {
+        var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var data = imageData.data;
+
+        for (var i = 0; i<data.length; i += 4) {
+            // Calculo valor del pixel promediando RGB
+            // Si el valor supera el umbral es blanco sino, negro.
+            let value = (data[i] + data[i+1] + data[i+2]) / 3 > 126 ? 255 : 0;
+
+            // Mismo valor para todo el pixel
+            data[i] = value; // R
+            data[i+1] = value; // G
+            data[i+2] = value; // B
+        };
+        ctx.putImageData(imageData, 0, 0);
+    };
+
+    let binarizationFilterApplier = document.getElementById('binary-filter');
+    binarizationFilterApplier.addEventListener('click', applyBinarization);
+
+    // Fórmulas obtenidas desde https://stackoverflow.com/a/17243070/15109471
+    // Conversión RGB a HSB
+
+    function RGBtoHSV(r, g, b) {
+        if (arguments.length === 1) {
+            g = r.g, b = r.b, r = r.r;
+        }
+        var max = Math.max(r, g, b), min = Math.min(r, g, b),
+            d = max - min,
+            h,
+            s = (max === 0 ? 0 : d / max),
+            v = max / 255;
+    
+        switch (max) {
+            case min: h = 0; break;
+            case r: h = (g - b) + d * (g < b ? 6: 0); h /= 6 * d; break;
+            case g: h = (b - r) + d * 2; h /= 6 * d; break;
+            case b: h = (r - g) + d * 4; h /= 6 * d; break;
+        }
+    
+        return {
+            h: h,
+            s: s,
+            v: v
+        };
+    };
+
+    // Conversión HSB a RGB
+
+    function HSVtoRGB(h, s, v) {
+        var r, g, b, i, f, p, q, t;
+        if (arguments.length === 1) {
+            s = h.s, v = h.v, h = h.h;
+        };
+        i = Math.floor(h * 6);
+        f = h * 6 - i;
+        p = v * (1 - s);
+        q = v * (1 - f * s);
+        t = v * (1 - (1 - f) * s);
+        switch (i % 6) {
+            case 0: r = v, g = t, b = p; break;
+            case 1: r = q, g = v, b = p; break;
+            case 2: r = p, g = v, b = t; break;
+            case 3: r = p, g = q, b = v; break;
+            case 4: r = t, g = p, b = v; break;
+            case 5: r = v, g = p, b = q; break;
+        };
+        return {
+            r: Math.round(r * 255),
+            g: Math.round(g * 255),
+            b: Math.round(b * 255)
+        };
+    };
+
+    // Filtro brillo
+    function applyBrightness(value) {
+        // Remuevo filtro para que no sea acumulativo
+        removeFilter();
+
+        var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var data = imageData.data;
+        for (var i = 0; i<data.length; i += 4) {
+            let r = data[i];
+            let g = data [i+1];
+            let b = data [i+2];
+
+            // Hago la conversión
+            let hsv = RGBtoHSV(r, g, b);
+            // Altero el valor de brillo de todo el pixel de acuerdo al valor del range input
+            let newV = hsv.v += value*10;
+            // Reconvierto a RGB
+            let newRgb = HSVtoRGB(hsv.h, hsv.s, newV);
+            // Asigno nuevos valores a todo el pixel
+            data[i] = newRgb.r;
+            data[i+1] = newRgb.g;
+            data[i+2] = newRgb.b;
+        };
+        ctx.putImageData(imageData, 0, 0);
+    };
+
+    let brightnessRange = document.getElementById('inputRangeBright');
+    brightnessRange.addEventListener('input', (e) => applyBrightness(e.target.value));
 
     // 3. Aplicar al menos cuatro filtros a la imagen actual, 
     //por ejemplo: negativo, brillo, binarización y sepia.
