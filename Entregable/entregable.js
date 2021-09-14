@@ -18,8 +18,8 @@ window.addEventListener('load', ()=>{
     let range = 1;
     let rangeColor = 1;
     let rangeEraser = 1;
-    canvas.height = 600;
-    canvas.width = 1200;
+    canvas.height = 500;
+    canvas.width = 1000;
     
     let originalImage = null
 
