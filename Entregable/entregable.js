@@ -20,6 +20,8 @@ window.addEventListener('load', ()=>{
     let rangeEraser = 1;
     canvas.height = 600;
     canvas.width = 1200;
+    
+    let originalImage = null
 
     let btnColor = document.getElementById('inputColor');
     btnColor.addEventListener('input', (e) => colorDefinition(e));
@@ -84,6 +86,7 @@ window.addEventListener('load', ()=>{
                 draw(x, y, e.clientX - position.left, e.clientY - position.top);
                 x = e.clientX - position.left;
                 y = e.clientY - position.top;
+                originalImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
             }
         };
 
@@ -135,7 +138,6 @@ window.addEventListener('load', ()=>{
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
-    
     let modalContainer = document.getElementById('modal-container');
     let uploadImage = document.getElementById('upload-image');
 
@@ -151,15 +153,16 @@ window.addEventListener('load', ()=>{
 
     //cargar en canvas
    
-    let reader = new FileReader()
-    let myImage = new Image()
+    let reader = new FileReader();
+    let myImage = new Image();
 
     let uploadNewImage = e => {
         reader.onload = () => {
             myImage.onload = () => {
-               // canvas.width = myImage.width; OPCIONAL
-               // canvas.height = myImage.height; OPCIONAL
+                canvas.width = myImage.width;
+                canvas.height = myImage.height; 
                 ctx.drawImage(myImage, 0, 0);
+                originalImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
             };
             myImage.src = reader.result
         };
@@ -184,6 +187,92 @@ window.addEventListener('load', ()=>{
     let imageDownloader = document.getElementById('downloader');
     imageDownloader.addEventListener('click', downloadImage);
 
+    // Quitar filtros
+
+    function removeFilter() {
+        ctx.putImageData(originalImage, 0, 0);
+    }
+
+    let filterRemover = document.getElementById('remove-filter');
+    filterRemover.addEventListener('click', removeFilter);
+
+    // Filtro Sepia
+    // Algoritmo tomado de: https://www.techrepublic.com/blog/how-do-i/how-do-i-convert-images-to-grayscale-and-sepia-tone-using-c/
+    function applySepia() {
+        var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var data = imageData.data;
+
+        for(var i = 0; i<data.length; i += 4) {
+            data[i] = (data[i] * 0.393) + (data[i+1] * 0.769) + (data[i+2] * 0.189); // R
+            data[i+1] = (data[i] * 0.349) + (data[i+1] * 0.686) + (data[i+2] * 0.168); // G
+            data[i+2] = (data[i] * 0.272) + (data[i+1] * 0.534) + (data[i+2] * 0.131); // B
+        }
+        ctx.putImageData(imageData, 0, 0);
+    }
+
+    let sepiaFilterApplier = document.getElementById('sepia-filter');
+    sepiaFilterApplier.addEventListener('click', applySepia);
+
+    // Filtro negativo
+
+    function applyNegative() {
+        var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var data = imageData.data;
+
+        for (var i = 0; i<data.length; i += 4) {
+            // El filtro negativo se produce al restar del máximo valor posible (255) el valor del pixel.
+            data[i] = 255 - data[i]; // R
+            data[i+1] = 255 - data[i+1]; // G
+            data[i+2] = 255 - data[i+2]; // B
+        }
+        ctx.putImageData(imageData, 0, 0);
+    }
+
+    let negativeFilterApplier = document.getElementById('negative-filter');
+    negativeFilterApplier.addEventListener('click', applyNegative);
+
+
+    // Filtro Blur
+
+    function getRed(imageData, x, y) {
+       index = (x + y * imageData.width) * 4;
+       return imageData.data[index]; 
+    }
+
+    function getGreen(imageData, x, y) {
+        index = (x + y * imageData.width) * 4;
+        return imageData.data[index+1] 
+    }
+
+    function getBlue(imageData, x, y) {
+        index = (x + y * imageData.width) * 4;
+        return imageData.data[index+2]; 
+    }
+
+    function applyBlur() {
+
+        var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      
+        for (var x = 0; x<imageData.width; x++) {
+            for (var y = 0; y<imageData.height; y++) {
+
+                // Tomo los 9 pixeles de la matriz (el actual más ocho), de cada uno tomo su color y lo transformo en el promedio de todos los pixeles de la matriz
+                let r = (getRed(imageData, x, y) + getRed(imageData, x-1, y+1) + getRed(imageData, x, y+1) + getRed(imageData, x+1, y+1) + getRed(imageData, x+1, y) + getRed(imageData, x+1, y-1) + getRed(imageData, x, y-1) + getRed(imageData, x-1, y-1) + getRed(imageData, x-1, y)) / 9;
+                let g = (getGreen(imageData, x, y) + getGreen(imageData, x-1, y+1) + getGreen(imageData, x, y+1) + getGreen(imageData, x+1, y+1) + getGreen(imageData, x+1, y) + getGreen(imageData, x+1, y-1) + getGreen(imageData, x, y-1) + getGreen(imageData, x-1, y-1) + getGreen(imageData, x-1, y)) / 9;
+                let b = (getBlue(imageData, x, y) + getBlue(imageData, x-1, y+1) + getBlue(imageData, x, y+1) + getBlue(imageData, x+1, y+1) + getBlue(imageData, x+1, y) + getBlue(imageData, x+1, y-1) + getBlue(imageData, x, y-1) + getBlue(imageData, x-1, y-1) + getBlue(imageData, x-1, y)) / 9;
+
+                // RGB en cada pixel = al promedio obtenido anteriormente
+                imageData.data[(x + y * imageData.width) * 4] = r
+                imageData.data[((x + y * imageData.width) * 4) +1] = g
+                imageData.data[((x + y * imageData.width) * 4) +2] = b
+            }
+            
+        };
+        ctx.putImageData(imageData, 0, 0);
+    }
+
+    let blurFilterApplier = document.getElementById('blur-filter');
+    blurFilterApplier.addEventListener('click', applyBlur);
 
 
     // 3. Aplicar al menos cuatro filtros a la imagen actual, 
@@ -193,7 +282,5 @@ window.addEventListener('load', ()=>{
     //Saturación, Detección de Bordes, Blur.
 
     // 5. Permitir guardar en disco la imagen, o descartar la imagen y 
-    //comenzar con un lienzo vacío.  -> HECHO <-
-
-
+    //comenzar con un lienzo vacío. 
 });
