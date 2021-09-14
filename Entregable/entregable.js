@@ -381,34 +381,6 @@ window.addEventListener('load', ()=>{
     let brightnessRange = document.getElementById('inputRangeBright');
     brightnessRange.addEventListener('input', (e) => applyBrightness(e.target.value));
 
-      // Filtro Saturación
-      function applySaturation(value) {
-        removeFilter();
-
-        var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        var data = imageData.data;
-        for (var i = 0; i<data.length; i += 4) {
-            let r = data[i];
-            let g = data [i+1];
-            let b = data [i+2];
-
-            // Hago la conversión
-            let hsv = RGBtoHSV(r, g, b);
-            // Altero el valor de saturación de todo el pixel de acuerdo al valor del range input
-            let newS = hsv.s += value*10;
-            // Reconvierto a RGB
-            let newRgb = HSVtoRGB(hsv.h, newS, hsv.v);
-            // Asigno nuevos valores a todo el pixel
-            data[i] = newRgb.r;
-            data[i+1] = newRgb.g;
-            data[i+2] = newRgb.b;
-        };
-        ctx.putImageData(imageData, 0, 0);
-    };
-
-    let saturationRange = document.getElementById('inputRangeSaturation');
-    saturationRange.addEventListener('input', (e) => applySaturation(e.target.value));
-
     // 3. Aplicar al menos cuatro filtros a la imagen actual, 
     //por ejemplo: negativo, brillo, binarización y sepia.
 
