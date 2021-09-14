@@ -148,9 +148,7 @@ window.addEventListener('load', ()=>{
         modalContainer.classList.add('show');
     });
 
-    uploadImage.addEventListener('click', ()=>{
-        modalContainer.classList.remove('show');
-    });
+  
 
     closeModal.addEventListener('click', ()=>{
         modalContainer.classList.remove('show');
@@ -164,12 +162,16 @@ window.addEventListener('load', ()=>{
     let uploadNewImage = e => {
         reader.onload = () => {
             myImage.onload = () => {
-                canvas.width = myImage.width;
-                canvas.height = myImage.height; 
-                ctx.drawImage(myImage, 0, 0);
-                originalImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            };
-            myImage.src = reader.result
+                uploadImage.addEventListener('click', ()=>{
+                    canvas.width = myImage.width;
+                    canvas.height = myImage.height; 
+                    ctx.drawImage(myImage, 0, 0);
+                    originalImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                    modalContainer.classList.remove('show');
+                });
+                
+            };  
+            myImage.src = reader.result;
         };
         reader.readAsDataURL(e.target.files[0])
     };
