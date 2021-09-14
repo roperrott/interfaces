@@ -140,6 +140,7 @@ window.addEventListener('load', ()=>{
 
     let modalContainer = document.getElementById('modal-container');
     let uploadImage = document.getElementById('upload-image');
+    let closeModal = document.getElementById('close');
 
     let btnNewImage = document.getElementById('newImage');
     btnNewImage.addEventListener('click', () => {
@@ -148,6 +149,10 @@ window.addEventListener('load', ()=>{
     });
 
     uploadImage.addEventListener('click', ()=>{
+        modalContainer.classList.remove('show');
+    });
+
+    closeModal.addEventListener('click', ()=>{
         modalContainer.classList.remove('show');
     });
 
@@ -409,12 +414,4 @@ window.addEventListener('load', ()=>{
     let saturationRange = document.getElementById('inputRangeSaturation');
     saturationRange.addEventListener('input', (e) => applySaturation(e.target.value));
 
-    // 3. Aplicar al menos cuatro filtros a la imagen actual, 
-    //por ejemplo: negativo, brillo, binarización y sepia.
-
-    // 4. Aplicar al menos dos de los siguientes filtros a la imagen: 
-    //Saturación, Detección de Bordes, Blur.
-
-    // 5. Permitir guardar en disco la imagen, o descartar la imagen y 
-    //comenzar con un lienzo vacío. 
 });

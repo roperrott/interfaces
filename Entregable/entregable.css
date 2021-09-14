@@ -8,6 +8,13 @@ body{
     font-family:Arial, Helvetica, sans-serif;
 }
 
+.container{
+    display: flex;
+    flex-direction: row;
+    height: 550px;
+}
+
+
 .modal-container{
     display: none;
 }
@@ -21,6 +28,11 @@ button{
     font-size: 14px;
     padding: 10px 25px;
     width: 100px;
+    margin: 2.5px;
+}
+
+#remove-filter{
+    background-color: #ec9613;
 }
 
 .modal-container{
@@ -49,7 +61,7 @@ button{
     background-color: rgb(255, 255, 255);
     width: 600px;
     max-width: 100%;
-    padding: 20px 50px;
+    padding: 20px 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -60,37 +72,36 @@ button{
 }
 
 header{
-    width: 100%;
-    padding: 20px 0px;
+    width: 20%;
+    height: auto;
     background-color: rgba(238, 228, 228, 0.808);
-    display: flex;
-    justify-content: center;
-}
-
-.icons-div{
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    align-items: center;
-}
-.icon{
-    margin: 10px;
-    padding: 10px;
-    border-style: solid;
-    border-color: black;
-    display: inline-block;
-}
-
-header{
     display: flex;
     flex-direction: column;
     align-items: center; 
 }
 
+.icons-div{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.general-tools{
+    flex-direction: row;
+    justify-content: center;
+}
+
+.icon{
+    margin: 5px;
+    padding: 5px;
+    border-style: solid;
+    border-color: black;
+    display: inline-block;
+}
+
+
 #colors{
     width: 30px;
-    height: 30px;
     margin: 5px;
     display: flex;
     flex-direction: row;
@@ -102,5 +113,17 @@ header{
     display: flex;
     justify-content: center;
     margin: 10px 0px;
+
 }
 
+#canvas{
+    width: auto;
+    height: auto;
+    border: 1px solid black;
+}
+
+
+
+.far{
+    align-self: flex-start;
+}

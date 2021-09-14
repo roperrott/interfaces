@@ -9,76 +9,80 @@
     <script src="https://kit.fontawesome.com/1f59a7fced.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <div class="icons-div">
-            <div class="icon" id="newImage">  
-                <i class="far fa-plus-square"></i>
-            </div>
-            <div class="icon" id="pencil">
-                <i class="fas fa-pencil-alt"></i>
-            </div>
-    
-            <div class="icon" id="eraser">
-                <i class="fas fa-eraser"></i>
-            </div>
+    <div class="container">
+        <div id="canv">
+            <canvas id="canvas"></canvas>
+        </div>
+        <header>
+            <div class="container-icons icons-div">
 
+                <div class="icons-div general-tools">
+                    <div class="icon" id="newImage">  
+                        <i class="far fa-plus-square"></i>
+                    </div>
+        
+                    <div class="icon" id="clear">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    
+                    <div class="icon" id="downloader">
+                        <i class="fas fa-download"></i>    
+                    </div>
+        
+                </div>
 
-            <div class="icon" id="clear">
-                <i class="fas fa-undo"></i>
-            </div>
-            
-            <div class="icon" id="downloader">
-                <i class="fas fa-download"></i>    
-            </div>
+                <div class="icons-div">
+                    <div class="icon" id="eraser">
+                        <i class="fas fa-eraser"></i>
+                    </div>
+                    <div>
+                        <input type="range" id="inputRangeEraser" min="1" max="10" value="1">
+                    </div>
+                </div>
 
-        </div>
+                <div class="icons-div"></div>
+                    <div class="icon" id="pencil">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <div id="colors">
+                        <input type="color" id="inputColor">
+                    </div>
+                    <div>
+                        <input type="range" id="inputRangeColor" min="1" max="10" value="1">
+                    </div>
+                </div>
 
-        <div class="icons-div">
-            <div id="colors">
-                <input type="color" id="inputColor">
+                <div class="icons-div">
+                    <button id="sepia-filter">Sepia</button>
+                    <button id="negative-filter">Negative</button>
+                    <button id="blur-filter">Blur</button>
+                    <button id="binary-filter">Binary</button>
+                    <button id="remove-filter">Remove</button>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-sun"></i>    
+                </div>
+                <div>
+                    <input type="range" id="inputRangeBright" min="0" max="0.10" step="0.01" value="0">
+                </div>
+                <div class="icon">
+                    <i class="fas fa-tachometer-alt"></i>    
+                </div>
+                <div>
+                    <input type="range" id="inputRangeSaturation" min="0" max="0.10" step="0.01" value="0">
+                </div>
             </div>
-            <div>
-                <input type="range" id="inputRangeColor" min="1" max="10" value="1">
-            </div>
-            <div>
-                <input type="range" id="inputRangeEraser" min="1" max="10" value="1">
-            </div>
-        </div>
-
-        <div class="icons-div">
-            <button id="sepia-filter">Sepia</button>
-            <button id="negative-filter">Negative</button>
-            <button id="blur-filter">Blur</button>
-            <button id="binary-filter">Binary</button>
-            <button id="remove-filter">Remove</button>
-        </div>
-        <div class="icon">
-            <i class="fas fa-sun"></i>    
-        </div>
-        <div>
-            <input type="range" id="inputRangeBright" min="0" max="0.10" step="0.01" value="0">
-        </div>
-        <div class="icon">
-            <i class="fas fa-tachometer-alt"></i>    
-        </div>
-        <div>
-            <input type="range" id="inputRangeSaturation" min="0" max="0.10" step="0.01" value="0">
-        </div>
-    </header>
-    <div id="canv">
-        <canvas id="canvas" width="1200" height="600" style="border:1px solid black;"></canvas>
+        
+        </header>
     </div>
     <div class="modal-container" id="modal-container">
         <div class="modal">
+            <i class="far fa-window-close" id="close"></i>
             <h2 class="modal-item">Seleccione Imagen</h2>
             <input class="modal-item" type="file" name="image" id="newImageInput" accept=".jpg, .png">
             <button id='upload-image' class="modal-item">Listo</button>
         </div>
     </div>
-
-    <footer>
-
-    </footer>
     
     <script src="entregable.js"></script>   
 </body>
