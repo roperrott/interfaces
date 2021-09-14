@@ -166,10 +166,26 @@ window.addEventListener('load', ()=>{
         reader.readAsDataURL(e.target.files[0])
     };
 
-    const imageLoader = document.getElementById('newImageInput');
+    let imageLoader = document.getElementById('newImageInput');
     imageLoader.addEventListener('change', uploadNewImage);
     
+    // Guardado de la imagen en disco
   
+    function downloadImage() {
+        let imagePath = canvas.toDataURL();
+        // Creamos un elemento del tipo anchor 
+        let link = document.createElement('a');
+        link.href = imagePath;
+        link.download = 'image.png';
+        // Simulamos click del usuario en el link
+        link.click();
+    }
+
+    let imageDownloader = document.getElementById('downloader');
+    imageDownloader.addEventListener('click', downloadImage);
+
+
+
     // 3. Aplicar al menos cuatro filtros a la imagen actual, 
     //por ejemplo: negativo, brillo, binarización y sepia.
 
@@ -177,7 +193,7 @@ window.addEventListener('load', ()=>{
     //Saturación, Detección de Bordes, Blur.
 
     // 5. Permitir guardar en disco la imagen, o descartar la imagen y 
-    //comenzar con un lienzo vacío.
+    //comenzar con un lienzo vacío.  -> HECHO <-
 
 
 });
