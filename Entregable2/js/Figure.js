@@ -1,8 +1,8 @@
 //Clase figura, la cual tiene como atributos x, y, id (que se ira incrementando en el contructor)
 // y el contexto de la figura. Estos son atributos que toda figura deberia tener
 export class Figure{
-    x;
-    y;
+   // x;
+   // y;
     id;
     ctx;
 

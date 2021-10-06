@@ -2,13 +2,14 @@
 //Clase ficha que extiende de la clase figura
 //con atributo r --> radio de la ficha, color, jugador y la imagen
 
+import {Figure} from './Figure.js';
+
 export class ChipGame extends Figure{
     r;
     color;
     player;
     image;
 
-    
     constructor(ctx, r, color, player, image){
         super(ctx);
         this.r = r;

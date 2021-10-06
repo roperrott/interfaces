@@ -15,7 +15,9 @@ export class Game{
     constructor(mode){
         this.gameMode = mode;
         this.matriz = new Array(mode);
-        for(let i in matriz){
+        console.log("Matriz length -> " + this.matriz.length);
+
+        for(let i = 0; i < this.matriz.length; i++) {
             this.matriz[i] = new Array(mode);
         }
     }
