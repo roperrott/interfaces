@@ -1,5 +1,5 @@
 "use strict";
-import { ChipGame } from "./ChipGame";
+import { ChipGame } from "./ChipGame.js";
 
 export class Board{
     xAxis;
@@ -23,7 +23,8 @@ export class Board{
 
     drawBoard(game){
         //recorro las columnas
-        for (let c = 0; c < game.matriz[x].length; c++){
+        for (let c = 0; c < game.matriz.length; c++){
+            console.log(game.matriz);
             //recorro las filas por cada columna
             for(let r = 0; r < game.matriz[c].length; r++){
                 //si la columna y la fila fueron definidas
@@ -42,16 +43,11 @@ export class Board{
     }
 
     drawEmptyPosition(c, r){
-        radious = 35;
-        if(this.highlighted == c){
-            this.ctx.fillStyle = '';
-        }else{
-            this.ctx.fillStyle = '#212529';
-        }
+        let radious = 30;
+        this.ctx.fillStyle = '#212529';
+    
         //dibuja el cuadrado
-        this.ctx.beginPath();
         this.ctx.fillRect(this.xAxis + c * this.size, this.yAxis + r * this.size, this.size, this.size);
-        this.ctx.closePath();
 
         //dibuja el circulo para insertar la ficha
         this.ctx.beginPath();
@@ -65,9 +61,9 @@ export class Board{
     }
 
     drawDelimiters(x, y, width, height){
-        line = 1;
+        let line = 1;
         this.ctx.beginPath();
-        this.ctx.fillStyle = '';
+        this.ctx.fillStyle = '#fff';
         this.ctx.fillRect(x - line, y - line, width + (2*line), height + (2*line));
     }
 }
