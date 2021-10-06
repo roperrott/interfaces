@@ -16,14 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let canvas = document.querySelector("canvas");
     let ctx = canvas.getContext('2d');
 
-    let board = new Board(200, 1500, 80, ctx);
-    let game = new Game(4); //pasamos por parametro el input que ingresa el usuario
+   // let board = new Board(200, 1500, 80, ctx);
+   // let game = new Game(8); //pasamos por parametro el input que ingresa el usuario
 
     board.drawBoard(game);
 
     function startNewGame(){
         console.log("new game started");
-        let game = new Game(4);
+        let game = new Game(9);
         let board = new Board(100, 100, 300, ctx);
         board.drawBoard(game);
     }

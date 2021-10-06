@@ -46,12 +46,10 @@ export class Board{
 
     drawEmptyPosition(c, r){
         // radious = 35;
-        let radious = 35;
-        if(this.highlighted == c){
-            this.ctx.fillStyle = '';
-        }else{
+        let radious = 30;
+      
             this.ctx.fillStyle = '#212529';
-        }
+        
         //dibuja el cuadrado
         this.ctx.fillRect(this.xAxis + c * this.size, this.yAxis + r * this.size, this.size, this.size);
 
