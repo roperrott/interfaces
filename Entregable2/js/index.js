@@ -14,12 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     btnRestart.addEventListener('click', startNewGame);
 
     let canvas = document.querySelector("canvas");
-    let ctx = canvas.getContext('2d');
+    // let ctx = canvas.getContext('2d');
 
     function startNewGame(){
         console.log("new game started");
         let game = new Game(4);
-        let board = new Board(100, 100, 300, ctx);
+        let board = new Board(100, 100, 200, canvas);
+        console.log("WINDOW -> " + window.innerWidth)
         board.drawBoard(game);
     }
 })

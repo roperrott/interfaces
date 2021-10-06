@@ -13,12 +13,12 @@ export class Game{
     //crea un array y a cada posicion le asocio un array creando la matriz que conforma el tablero
     //por default el jugador 1 inicia el juego y la variable gameFinished es inicializada en false 
     constructor(mode){
-        this.gameMode = mode;
-        this.matriz = new Array(mode);
+        this.gameMode = mode + 1;
+        this.matriz = new Array(this.gameMode);
         console.log("Matriz length -> " + this.matriz.length);
 
         for(let i = 0; i < this.matriz.length; i++) {
-            this.matriz[i] = new Array(mode);
+            this.matriz[i] = new Array(this.gameMode);
         }
     }
     
