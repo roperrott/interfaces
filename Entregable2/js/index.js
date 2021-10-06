@@ -5,13 +5,15 @@ import {ChipGame} from './ChipGame.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    console.log("DOM CONTENT LOADED");
+
     let btnStart = document.getElementById('save');
-    btnStart.addEventListener('click', startNewGame());
+    btnStart.addEventListener('click', startNewGame);
 
     let btnRestart = document.getElementById('restart');
-    btnRestart.addEventListener('click', startNewGame());
+    btnRestart.addEventListener('click', startNewGame);
 
-    let canvas = document.querySelector('canvas');
+    let canvas = document.querySelector("canvas");
     let ctx = canvas.getContext('2d');
 
     let board = new Board(200, 1500, 80, ctx);
@@ -20,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     board.drawBoard(game);
 
     function startNewGame(){
-
+        console.log("new game started");
+        let game = new Game(4);
+        let board = new Board(100, 100, 300, ctx);
+        board.drawBoard(game);
     }
 });

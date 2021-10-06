@@ -18,8 +18,10 @@ export class Game{
         this.gameFinished = false;
         this.gameMode = mode;
         this.matriz = new Array(mode);
-        for(let m =0; m < this.matriz.length; m++){
-            this.matriz[m] = new Array(mode);
+        console.log("Matriz length -> " + this.matriz.length);
+
+        for(let i = 0; i < this.matriz.length; i++) {
+            this.matriz[i] = new Array(mode);
         }
     }
     

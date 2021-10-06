@@ -22,13 +22,14 @@ export class Board{
     }
 
     drawBoard(game){
+        console.log("drawing board")
         //recorro las columnas
         for (let c = 0; c < game.matriz.length; c++){
-            console.log(game.matriz);
             //recorro las filas por cada columna
             for(let r = 0; r < game.matriz[c].length; r++){
                 //si la columna y la fila fueron definidas
-                if(game.matriz[c][r] != undefined){
+                if(game.matriz[c][r] /*!= undefined*/){
+                    console.log(" draw ");
                     this.drawEmptyPosition(c,r);
                     x = this.xAxis + c * this.size + this.size / 2;
                     y = this.yAxis + r * this.size + this.size / 2;
@@ -36,6 +37,7 @@ export class Board{
 
                 }else{
                     //dibuja una posicion en esa columna y esa fila
+                    console.log("draw empty col -> " + c + " row -> " + r);
                     this.drawEmptyPosition(c, r);
                 }
             }
@@ -43,15 +45,20 @@ export class Board{
     }
 
     drawEmptyPosition(c, r){
-        let radious = 30;
-        this.ctx.fillStyle = '#212529';
-    
+        // radious = 35;
+        let radious = 35;
+        if(this.highlighted == c){
+            this.ctx.fillStyle = '';
+        }else{
+            this.ctx.fillStyle = '#212529';
+        }
         //dibuja el cuadrado
         this.ctx.fillRect(this.xAxis + c * this.size, this.yAxis + r * this.size, this.size, this.size);
 
         //dibuja el circulo para insertar la ficha
+        
         this.ctx.beginPath();
-        this.ctx.fillStyle = 'white';
+        this.ctx.fillStyle = 'red';
         this.ctx.arc(this.xAxis + c * this.size/2, this.yAxis + r * this.size/2, radious, 0, 2 * Math.PI);
         this.ctx.fill();
         this.ctx.closePath();
@@ -61,9 +68,10 @@ export class Board{
     }
 
     drawDelimiters(x, y, width, height){
+        // line = 1;
         let line = 1;
         this.ctx.beginPath();
-        this.ctx.fillStyle = '#fff';
+        this.ctx.fillStyle = 'white';
         this.ctx.fillRect(x - line, y - line, width + (2*line), height + (2*line));
     }
 }
