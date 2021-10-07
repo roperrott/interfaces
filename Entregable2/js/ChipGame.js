@@ -32,7 +32,6 @@ export class ChipGame extends Figure{
         this.ctx.fillStyle = this.color;
         this.ctx.fill();
         this.ctx.closePath();
-
-        //ctx.drawImage(this.image, x-27.5, y-27.5,  this.r+25,  this.r+25);
+        this.ctx.drawImage(this.image, x-30, y-30,  this.r+28,  this.r+28);
     }
 }
