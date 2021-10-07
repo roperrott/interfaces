@@ -48,8 +48,7 @@ export class Board{
                 }
                 */
                 this.drawEmptyPosition(c, r);
-               
-               // this.drawEmptyChip(c, r);
+
             }
         }
     }
@@ -57,17 +56,12 @@ export class Board{
 
 
     drawEmptyPosition(c, r){
-        // radious = 35;
-        let radious = 35;
+        let radious = 30;
         if(this.highlighted == c){
             this.ctx.fillStyle = '';
         }else{
             this.ctx.fillStyle = 'pink';
         }
-        //dibuja el cuadrado
-        //this.ctx.beginPath();
-        //this.ctx.fillRect(this.xAxis + c * this.size/2, this.yAxis + r * this.size/2, this.size/4, this.size/4);
-        //this.ctx.closePath();
 
         //dibuja el circulo para insertar la ficha
         this.ctx.beginPath();

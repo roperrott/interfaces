@@ -14,13 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let btnRestart = document.getElementById('restart');
     btnRestart.addEventListener('click', startNewGame);
 
-    
-    // let ctx = canvas.getContext('2d');
-
-   // let board = new Board(200, 1500, 80, ctx);
-   // let game = new Game(8); //pasamos por parametro el input que ingresa el usuario
-
-    //board.drawBoard(game);
+    let imgPlayerOne = new Image();
+    let imgPlayerTwo = new Image();
+    baseImageBlack.src = '../'
+    baseImageWhite.src = '../'
 
     function startNewGame(){
       
@@ -33,8 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("new game started");
         let game = new Game(mode);
         let board = new Board(100, 100, 200, canvas);
-        console.log("WINDOW -> " + window.innerWidth)
+
         board.drawBoard(game);
         canvas.style.display = 'inline'
     }
+
 });
