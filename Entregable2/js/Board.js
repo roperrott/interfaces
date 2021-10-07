@@ -16,7 +16,7 @@ export class Board{
         this.yAxis = y;
         this.size = size;
         this.canvas = canvas;
-        this.ctx = canvas.getContext('2d');
+        this.ctx = canvas.getContext("2d");
     }
 
     setHighlight(c){
@@ -54,41 +54,10 @@ export class Board{
         }
     }
 
-    drawEmptyChip(col, row) {
 
-        let xmaxchips = 6
-        let ymaxchips = 6
-        let canvas = document.querySelector("canvas");
-
-        console.log("draw");
-        this.ctx.fillStyle = 'green';
-        this.ctx.fillRect(this.xAxis + col * this.size, this.yAxis + row * this.size, this.size, this.size);
-
-        this.ctx.fillStyle = 'white';
-        this.ctx.beginPath();
-        this.ctx.lineWidth = 7;
-         this.ctx.arc((canvas.width/xmaxchips)*row+(xmaxchips*ymaxchips), 
-                (canvas.height/ymaxchips)*col+(xmaxchips*ymaxchips), 
-                36, 0, Math.PI*2);
-                this.ctx.strokeStyle = 'pink';
-                // this.ctx.setLineDash([2.5, 0.5]);
-                this.ctx.stroke();
-                this.ctx.fill();
-                this.ctx.closePath();
-        
-              
-    }
 
     drawEmptyPosition(c, r){
         // radious = 35;
-<<<<<<< HEAD
-        let radious = 30;
-      
-            this.ctx.fillStyle = '#212529';
-        
-        //dibuja el cuadrado
-        this.ctx.fillRect(this.xAxis + c * this.size, this.yAxis + r * this.size, this.size, this.size);
-=======
         let radious = 35;
         if(this.highlighted == c){
             this.ctx.fillStyle = '';
@@ -96,10 +65,9 @@ export class Board{
             this.ctx.fillStyle = 'pink';
         }
         //dibuja el cuadrado
-        this.ctx.beginPath();
-        this.ctx.fillRect(this.xAxis + c * this.size/2, this.yAxis + r * this.size/2, this.size/4, this.size/4);
-        this.ctx.closePath();
->>>>>>> 58f4adf0367983d41457218a3f44ce3c5e1c6c49
+        //this.ctx.beginPath();
+        //this.ctx.fillRect(this.xAxis + c * this.size/2, this.yAxis + r * this.size/2, this.size/4, this.size/4);
+        //this.ctx.closePath();
 
         //dibuja el circulo para insertar la ficha
         this.ctx.beginPath();

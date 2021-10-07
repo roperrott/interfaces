@@ -10,27 +10,31 @@ document.addEventListener('DOMContentLoaded', () => {
     let btnStart = document.getElementById('save');
     btnStart.addEventListener('click', startNewGame);
 
+ 
     let btnRestart = document.getElementById('restart');
     btnRestart.addEventListener('click', startNewGame);
 
-    let canvas = document.querySelector("canvas");
+    
     // let ctx = canvas.getContext('2d');
 
    // let board = new Board(200, 1500, 80, ctx);
    // let game = new Game(8); //pasamos por parametro el input que ingresa el usuario
 
-    board.drawBoard(game);
+    //board.drawBoard(game);
 
     function startNewGame(){
+      
+        let colorOne = document.querySelector('#one-color').value;
+        let colorTwo = document.querySelector('#two-color').value;
+        let mode = parseInt(document.querySelector('input[name="inLine"]:checked').value);
+        console.log(mode);
+
+        let canvas = document.querySelector("canvas");
         console.log("new game started");
-<<<<<<< HEAD
-        let game = new Game(9);
-        let board = new Board(100, 100, 300, ctx);
-=======
-        let game = new Game(4);
+        let game = new Game(mode);
         let board = new Board(100, 100, 200, canvas);
         console.log("WINDOW -> " + window.innerWidth)
->>>>>>> 58f4adf0367983d41457218a3f44ce3c5e1c6c49
         board.drawBoard(game);
+        canvas.style.display = 'inline'
     }
 });
