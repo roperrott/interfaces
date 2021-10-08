@@ -10,13 +10,13 @@ canvas {
     border: 2px solid silver;
     display: none;
     border-radius: 25px;
-    margin-left: 500px;
+    margin-left: 90px;
 }
 
 
 #timer { 
     color: white;
-    margin-left: 600px;
+    margin-left: 400px;
     font-size: large;
     font-weight: bolder;
 }
@@ -24,3 +24,16 @@ canvas {
 #timer-title {
     margin-right: 20px;
 }
+
+#container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#jugada{
+    width: 300px;
+    height: 100px;
+    background-color: gray;
+}
+

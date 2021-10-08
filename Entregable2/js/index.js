@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     imgPlayerOne.src = './img/redChip.png';
     imgPlayerTwo.src = './img/blackChip.png';
 
+    let winnerDiv = document.querySelector('#winner');
+    let currentPlayer = document.querySelector('#current-player');
+
     function startNewGame(){
 
         // Se limpia el intervalo de tiempo antes de comenzar un nuevo juego
@@ -32,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Comienza jugando el jugador 1
         let isPlayerOnePlaying = true
+        currentPlayer.innerHTML = " Jugador 1";
+        
+       
         let colorOne = document.querySelector('#one-color').value;
         let colorTwo = document.querySelector('#two-color').value;
 
@@ -50,13 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
         function updateSeconds() {
             seconds-=1;
             if (seconds == 0) {
+                if(winner == null){
+                    winnerDiv.innerHTML = " No hubo ganador";
+                }
                 // El juego termina cuando el tiempo llega a 0
                 game.gameFinished = true;
                 window.clearInterval(interval);
             }
             minuteTimer.innerHTML = Math.floor(seconds / 60);
             secondTimer.innerHTML = seconds % 60;
-    }
+        }
 
         // Dibujo tablero y fichas fijas
         board.drawBoard(game, firstChipGame, secondChipGame);
@@ -106,22 +115,37 @@ document.addEventListener('DOMContentLoaded', () => {
             
                 let column = game.checkColumn(event.offsetX);
                 let chip = isPlayerOnePlaying ? "first" : "second"
+              
 
                 if (column > -1) {
                     game.play(column, chip);
                     isMovingChip = false;
                     isPlayerOnePlaying = !isPlayerOnePlaying;
+                    if(isPlayerOnePlaying){
+                        currentPlayer.innerHTML = " Jugador 1";
+                    }else{
+                        currentPlayer.innerHTML = " Jugador 2";
+                    }
+
                 }
                 board.drawBoard(game, firstChipGame, secondChipGame);
                 firstChipGame.draw(xChipPosInitial, yChipPosInitial, ctx);
                 secondChipGame.draw(xChipPosFinal, yChipPosFinal, ctx);
             }
+           
             if (game.winner != null) {
                 showWinner(game.winner);
             }
         }
         function showWinner(winner) {
-
+            if(winner = 'first'){
+                winnerDiv.innerHTML = " Jugador 1";
+            }else{
+                winnerDiv.innerHTML = " Jugador 2";
+            }
+            winnerDiv.classList.add("badge");
+            winnerDiv.classList.add("badge-pill");
+            winnerDiv.classList.add("badge-success");
         }
     } 
 });

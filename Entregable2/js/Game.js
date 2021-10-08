@@ -68,7 +68,7 @@ export class Game{
             this.checkByRow(gameMode);
             this.checkByDiagonals(gameMode);
         }  
-        return this.winner;
+  
     }
 
     checkByColumn(gameMode) {

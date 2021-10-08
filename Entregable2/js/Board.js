@@ -26,7 +26,7 @@ export class Board{
     drawBoard(game, firstChip, secondChip){
         console.log("drawing board")
 
-        this.canvas.width = (game.matriz.length * (this.size * 0.70));
+        this.canvas.width = (game.matriz.length * (this.size * 0.65));
         this.canvas.height =  (game.matriz.length - 1) * (this.size * 0.70);
 
         //recorro las columnas
