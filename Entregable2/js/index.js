@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     imgPlayerTwo.src = './img/blackChip.png';
 
     function startNewGame(){
-      
+
         let isPlayerOnePlaying = true
         let colorOne = document.querySelector('#one-color').value;
         let colorTwo = document.querySelector('#two-color').value;
@@ -34,21 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
         let secondChipGame = new ChipGame(ctx, 34, colorTwo, 2, imgPlayerTwo);
       
         // Dibujo tablero y fichas fijas
-        board.drawBoard(game);
-        firstChipGame.draw(700, 100, ctx);
-        secondChipGame.draw(800, 100, ctx);
+        board.drawBoard(game, firstChipGame, secondChipGame);
+
+        let xChipPosInitial = canvas.width - 50
+        let xChipPosFinal = canvas.width - 50
+        let yChipPosInitial = 100
+        let yChipPosFinal = 200
+
+        firstChipGame.draw(xChipPosInitial, yChipPosInitial, ctx);
+        secondChipGame.draw(xChipPosFinal, yChipPosFinal, ctx);
 
         canvas.style.display = 'inline';
+        canvas.style.margin = '0';
         let chip = firstChipGame;
         let isMovingChip = false;
 
         canvas.addEventListener('mousedown', function(e) {
             // Si el click es donde tengo las fichas fijas
-            if (e.offsetX > 650 && e.offsetX < 850) {
-                if (e.offsetY > 50 && e.offsetY < 150) {
-                    board.drawBoard(game);
-                    firstChipGame.draw(700, 100, ctx);
-                    secondChipGame.draw(800, 100, ctx);
+            if (e.offsetX > xChipPosInitial - 50 && e.offsetX < xChipPosFinal + 50) {
+                if (e.offsetY > yChipPosInitial - 50 && e.offsetY < yChipPosFinal + 50) {
+                    board.drawBoard(game, firstChipGame, secondChipGame);
+                    firstChipGame.draw(xChipPosInitial, yChipPosInitial, ctx);
+                    secondChipGame.draw(xChipPosFinal, yChipPosFinal, ctx);
                     // Muevo el color de ficha depende de qué jugador esté jugando
                     chip = isPlayerOnePlaying ? firstChipGame : secondChipGame;
                     chip.draw(e.offsetX, e.offsetY);
@@ -62,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         function moving(event) {
             isMovingChip = true;
            // ctx.clearRect(0, 0, canvas.width, canvas.height);
-            board.drawBoard(game);
-            firstChipGame.draw(700, 100, ctx);
-            secondChipGame.draw(800, 100, ctx);
+            board.drawBoard(game, firstChipGame, secondChipGame);
+            firstChipGame.draw(xChipPosInitial, yChipPosInitial, ctx);
+            secondChipGame.draw(xChipPosFinal, yChipPosFinal, ctx);
             chip.draw(event.offsetX, event.offsetY, ctx);
         }
 
@@ -72,9 +79,18 @@ document.addEventListener('DOMContentLoaded', () => {
             // "suelta" la ficha
             if (isMovingChip) {
                 canvas.removeEventListener('mousemove', moving, false);
-                chip.draw(event.offsetX, event.offsetY, ctx);
-                isMovingChip = false;
-                isPlayerOnePlaying = !isPlayerOnePlaying;
+            
+                let column = game.checkColumn(event.offsetX);
+                let chip = isPlayerOnePlaying ? "first" : "second"
+
+                if (column > -1) {
+                    game.play(column, chip);
+                    isMovingChip = false;
+                    isPlayerOnePlaying = !isPlayerOnePlaying;
+                }
+                board.drawBoard(game, firstChipGame, secondChipGame);
+                firstChipGame.draw(xChipPosInitial, yChipPosInitial, ctx);
+                secondChipGame.draw(xChipPosFinal, yChipPosFinal, ctx);
             }
         }
     } 

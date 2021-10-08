@@ -15,7 +15,6 @@ export class Game{
     constructor(mode){
         this.gameMode = mode + 1;
         this.matriz = new Array(this.gameMode);
-        console.log("Matriz length -> " + this.matriz.length);
 
         for(let i = 0; i < this.matriz.length; i++) {
             this.matriz[i] = new Array(this.gameMode);
@@ -41,22 +40,40 @@ export class Game{
     // se chequea que el juego no haya finalizado y se recorre el eje y de la columna por parametro
     //si la fila siguiente no se pasa del eje y y a su vez no es indefinida (es decir que ya hay una ficha), 
     //defino la ficha en el "y" actual
-    play(column, gameChip){
+    play(x, chipGame){
         if(!this.gameFinished){
             let yAxisRef = this.matriz[x].length;
-            for(let y in yAxisRef){
+            for(let y = 0; y < yAxisRef; y++) {
                 if(y + 1 < yAxisRef){
                     if(this.matriz[x][y + 1] != undefined){
-                        this.matriz[x][y] = chipGame;    
-                    }else{
-                        this.matriz[x][y + 1] = chipGame;
+                        if (this.matriz[x][y] == undefined) {
+                            this.matriz[x][y] = chipGame;
+                        }    
                     }
-                    return;
                 }else{
-                    this.matriz[x][y] = chipGame;
-                    return;
+                    if (this.matriz[x][y] == undefined) {
+                        this.matriz[x][y] = chipGame;
+                        return;
+                    }
                 }
             }
+           // thisGameFinished = this.isThereWinner(gameMode);
         }
+    }
+
+    isThereWinner(gameMode) {
+        // checkear si hay "gameMode" cantidad en linea
+        return false;
+    }
+
+    checkColumn(x) {
+        let initialX = 50
+        for(let i = 1; i<=this.matriz.length; i++) {
+            if (x > initialX && x < initialX + i*100 ) {
+                console.log("RETURN COLUMN -> " + (i-1));
+                return i-1
+            }
+        }
+        return -1
     }
 }
