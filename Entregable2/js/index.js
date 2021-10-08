@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let btnStart = document.getElementById('save');
     btnStart.addEventListener('click', startNewGame);
 
+    let minuteTimer = document.getElementById('minute-timer');
+    let secondTimer = document.getElementById('second-timer');
+    let seconds = 300
+
+    // Se crea intervalo de tiempo nulo
+    let interval = window.setInterval(null, null);
     let btnRestart = document.getElementById('restart');
     btnRestart.addEventListener('click', startNewGame);
 
@@ -19,20 +25,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startNewGame(){
 
+        // Se limpia el intervalo de tiempo antes de comenzar un nuevo juego
+        interval = window.clearInterval(interval);
+        seconds = 301;
+        interval = window.setInterval(updateSeconds, 1000);
+
+        // Comienza jugando el jugador 1
         let isPlayerOnePlaying = true
         let colorOne = document.querySelector('#one-color').value;
         let colorTwo = document.querySelector('#two-color').value;
+
+        // El modo de juego es la cantidad de fichas en linea que se deben ubicar para ganar
         let mode = parseInt(document.querySelector('input[name="inLine"]:checked').value);
-        console.log(mode);
 
         let canvas = document.querySelector("canvas");
         let ctx = canvas.getContext('2d');
-        console.log("new game started");
+
         let game = new Game(mode);
         let board = new Board(100, 100, 200, canvas);
         let firstChipGame = new ChipGame(ctx, 34, colorOne, 1, imgPlayerOne);
         let secondChipGame = new ChipGame(ctx, 34, colorTwo, 2, imgPlayerTwo);
       
+          // Función que descuenta de a un segundo y actualiza los valores 
+        function updateSeconds() {
+            seconds-=1;
+            if (seconds == 0) {
+                // El juego termina cuando el tiempo llega a 0
+                game.gameFinished = true;
+                window.clearInterval(interval);
+            }
+            minuteTimer.innerHTML = Math.floor(seconds / 60);
+            secondTimer.innerHTML = seconds % 60;
+    }
+
         // Dibujo tablero y fichas fijas
         board.drawBoard(game, firstChipGame, secondChipGame);
 
@@ -41,11 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let yChipPosInitial = 100
         let yChipPosFinal = 200
 
+        // Se dibujan las fichas desde las cuales podremos arrastrar según el turno del jugador
         firstChipGame.draw(xChipPosInitial, yChipPosInitial, ctx);
         secondChipGame.draw(xChipPosFinal, yChipPosFinal, ctx);
 
         canvas.style.display = 'inline';
-        canvas.style.margin = '0';
         let chip = firstChipGame;
         let isMovingChip = false;
 
@@ -68,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function moving(event) {
             isMovingChip = true;
-           // ctx.clearRect(0, 0, canvas.width, canvas.height);
             board.drawBoard(game, firstChipGame, secondChipGame);
             firstChipGame.draw(xChipPosInitial, yChipPosInitial, ctx);
             secondChipGame.draw(xChipPosFinal, yChipPosFinal, ctx);
@@ -92,6 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 firstChipGame.draw(xChipPosInitial, yChipPosInitial, ctx);
                 secondChipGame.draw(xChipPosFinal, yChipPosFinal, ctx);
             }
+            if (game.winner != null) {
+                showWinner(game.winner);
+            }
+        }
+        function showWinner(winner) {
+
         }
     } 
 });

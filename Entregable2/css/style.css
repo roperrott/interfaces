@@ -1,15 +1,7 @@
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 #canvas-container {
-    margin: 0 auto;
-    width: 100%;
+    margin: 0 50%;
     height: 100%;
-    background-color: #212529;
 }
 
 canvas {
@@ -18,4 +10,17 @@ canvas {
     border: 2px solid silver;
     display: none;
     border-radius: 25px;
+    margin-left: 500px;
+}
+
+
+#timer { 
+    color: white;
+    margin-left: 600px;
+    font-size: large;
+    font-weight: bolder;
+}
+
+#timer-title {
+    margin-right: 20px;
 }
