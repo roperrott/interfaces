@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
            
             if (game.gameFinished == true && game.winner != null) {
+                game.winner
                 showWinner(game.winner);
                 game.resetGame(mode);
                 //startNewGame();  
@@ -148,8 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
         function showWinner(winner) {
             window.clearInterval(interval);
             winnerModal.style = 'display:block;'
-            if(winner = 'first'){
-                winnerDiv.innerHTML = " GANO EL JUGADOR 1"
+            if(winner == 'first'){
+                winnerDiv.innerHTML = " GANO EL JUGADOR 1";
             }else{
                 winnerDiv.innerHTML = "GANO EL JUGADOR 2";
             }
