@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let minuteTimer = document.getElementById('minute-timer');
     let secondTimer = document.getElementById('second-timer');
     let seconds = 300
-
+    let optionModal = document.querySelector('#my-modal');
     // Se crea intervalo de tiempo nulo
     let interval = window.setInterval(null, null);
     let btnRestart = document.getElementById('restart');
@@ -25,9 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let winnerDiv = document.querySelector('#winner');
     let currentPlayer = document.querySelector('#current-player');
+    let winnerModal = document.querySelector('#winner-modal');
+    let colorOne = document.querySelector('#one-color').value;
+    let colorTwo = document.querySelector('#two-color').value;
+
+    // El modo de juego es la cantidad de fichas en linea que se deben ubicar para ganar
+    let mode = parseInt(document.querySelector('input[name="inLine"]:checked').value);
 
     function startNewGame(){
-
+      
+        optionModal.style = 'display:hidden;'
         // Se limpia el intervalo de tiempo antes de comenzar un nuevo juego
         interval = window.clearInterval(interval);
         seconds = 301;
@@ -37,17 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let isPlayerOnePlaying = true
         currentPlayer.innerHTML = " Jugador 1";
         
-       
-        let colorOne = document.querySelector('#one-color').value;
-        let colorTwo = document.querySelector('#two-color').value;
 
-        // El modo de juego es la cantidad de fichas en linea que se deben ubicar para ganar
-        let mode = parseInt(document.querySelector('input[name="inLine"]:checked').value);
 
         let canvas = document.querySelector("canvas");
         let ctx = canvas.getContext('2d');
 
         let game = new Game(mode);
+      
         let board = new Board(100, 100, 200, canvas);
         let firstChipGame = new ChipGame(ctx, 34, colorOne, 1, imgPlayerOne);
         let secondChipGame = new ChipGame(ctx, 34, colorTwo, 2, imgPlayerTwo);
@@ -57,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             seconds-=1;
             if (seconds == 0) {
                 if(winner == null){
-                    winnerDiv.innerHTML = " No hubo ganador";
+                    winnerDiv.innerHTML = "No hubo ganador";
                 }
                 // El juego termina cuando el tiempo llega a 0
                 game.gameFinished = true;
@@ -133,19 +136,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 secondChipGame.draw(xChipPosFinal, yChipPosFinal, ctx);
             }
            
-            if (game.winner != null) {
+            if (game.gameFinished == true && game.winner != null) {
                 showWinner(game.winner);
+                game.resetGame(mode);
+                //startNewGame();  
             }
+         
         }
+
+        //muestra el ganador en el modal una vez el juego este finalizado
         function showWinner(winner) {
+            window.clearInterval(interval);
+            winnerModal.style = 'display:block;'
             if(winner = 'first'){
-                winnerDiv.innerHTML = " Jugador 1";
+                winnerDiv.innerHTML = " GANO EL JUGADOR 1"
             }else{
-                winnerDiv.innerHTML = " Jugador 2";
+                winnerDiv.innerHTML = "GANO EL JUGADOR 2";
             }
-            winnerDiv.classList.add("badge");
-            winnerDiv.classList.add("badge-pill");
-            winnerDiv.classList.add("badge-success");
+            let btnClose = document.querySelector('#close');
+            btnClose.addEventListener('click', () => {
+                winnerModal.style = 'display:none;';
+            });
         }
     } 
 });

@@ -8,6 +8,7 @@ export class Game{
     matriz;
     gameFinished;
     gameMode;
+ 
 
     //pasa un parametro al constructor para definir el tamanio del tablero
     //crea un array y a cada posicion le asocio un array creando la matriz que conforma el tablero
@@ -22,6 +23,15 @@ export class Game{
         }
     }
     
+    resetGame(mode){
+        this.gameMode = mode;
+        this.matriz = new Array(this.gameMode);
+        this.winner = null;
+        this.gameFinished = false;
+        for(let i = 0; i < this.matriz.length; i++) {
+            this.matriz[i] = new Array(this.gameMode + 1);
+        }
+    }
     //seteo el jugador para el proximo turno
     //cheque que jugador fue en ultimo lugar por la variable "justPlayed"
     //en funcion de eso setea el proximo turno al otro jugador y presupone que ya jugo 
@@ -62,6 +72,9 @@ export class Game{
         }
     }
 
+    //verifica si hay un ganador por columna, por fila 
+    //y por diagonales (funcionalidad que chequea diagonal principal, secundaria y las primeras diagonales auxiliares
+    // no quedo funcional que chequee todas las diagonales auxiliares de la segunda "mitad" del tablero)
     checkWinner(gameMode) {
         if (!this.gameFinished) {
             this.checkByColumn(gameMode);
@@ -71,6 +84,7 @@ export class Game{
   
     }
 
+    //chequea que haya repetidos para el jugador por columna
     checkByColumn(gameMode) {
 
         let firstRepeated = 0;
@@ -93,15 +107,18 @@ export class Game{
                 if (firstRepeated == gameMode) {
                     this.gameFinished = true
                     this.winner = "first";
+                    firstRepeated = 0;
                 }
                 if (secondRepeated == gameMode) {
                     this.gameFinished = true;
                     this.winner = "second";
+                    secondRepeated = 0;
                 }
             }
         }
     }
 
+    //chequea que haya repetidos para el jugador por fila
     checkByRow(gameMode) {
 
         let firstRepeated = 0;
@@ -124,16 +141,21 @@ export class Game{
                 if (firstRepeated == gameMode) {
                     this.gameFinished = true
                     this.winner = "first";
+                    firstRepeated = 0;
                
                 }
                 if (secondRepeated == gameMode) {
                     this.gameFinished = true;
                     this.winner = "second";
+                    secondRepeated = 0;
                 }
             }
         }
     }
 
+    //chequea que haya repetidos para el jugador por diagonal principal
+    //diagonal secundaria
+    //diagonales de la primer "mitad de la matriz a partir de la diagonal principal"
     checkByDiagonals(gameMode) {
         for (let i = this.matriz.length; i > 0; i--) {
             this.checkMainDiagonal(gameMode,0, i);
@@ -143,8 +165,18 @@ export class Game{
             this.checkMainDiagonal(gameMode, i, this.matriz.length);
             this.checkSecondaryDiagonal(gameMode, i, this.matriz.length);
         }
+        for(let i = 0; i < this.matriz.length; i ++){
+            for (let j= this.matriz[i].length; j > 0;j--){
+                this.checkMainDiagonal(gameMode, j, this.matriz.length);
+                this.checkSecondaryDiagonal(gameMode, j, this.matriz.length);
+            }
+        }
+
+
+      
     }
 
+    //chequea repetidos en la diagonal principal
     checkMainDiagonal(gameMode, start, length) {
 
         let firstRepeated = 0;
@@ -167,15 +199,18 @@ export class Game{
                 if (firstRepeated == gameMode) {
                     this.gameFinished = true
                     this.winner = "first";
+                    firstRepeated = 0;
                 }
                 if (secondRepeated == gameMode) {
                     this.gameFinished = true;
                     this.winner = "second";
+                    secondRepeated = 0;
                 }
             }
         } 
     }
 
+    //chequea repetidos en diagonal secundaria
     checkSecondaryDiagonal(gameMode, start, length) {
 
         let firstRepeated = 0;
@@ -209,6 +244,7 @@ export class Game{
         } 
     }
 
+    //verifica la columna de juego
     checkColumn(x) {
         let initialX = 50
         for(let i = 1; i<=this.matriz.length; i++) {
