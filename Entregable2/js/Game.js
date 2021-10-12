@@ -17,7 +17,7 @@ export class Game{
         this.gameMode = mode;
         this.matriz = new Array(this.gameMode + 1);
         this.winner = null;
-
+        this.gameFinished = false;
         for(let i = 0; i < this.matriz.length; i++) {
             this.matriz[i] = new Array(this.gameMode + 1);
         }
@@ -25,7 +25,7 @@ export class Game{
     
     resetGame(mode){
         this.gameMode = mode;
-        this.matriz = new Array(this.gameMode);
+        this.matriz = new Array(this.gameMode + 1);
         this.winner = null;
         this.gameFinished = false;
         for(let i = 0; i < this.matriz.length; i++) {

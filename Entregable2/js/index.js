@@ -26,11 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let winnerDiv = document.querySelector('#winner');
     let currentPlayer = document.querySelector('#current-player');
     let winnerModal = document.querySelector('#winner-modal');
-    let colorOne = document.querySelector('#one-color').value;
-    let colorTwo = document.querySelector('#two-color').value;
-
-    // El modo de juego es la cantidad de fichas en linea que se deben ubicar para ganar
-    let mode = parseInt(document.querySelector('input[name="inLine"]:checked').value);
+    
+    let canvas = document.querySelector("canvas");
+    let ctx = canvas.getContext('2d');
 
     function startNewGame(){
       
@@ -44,11 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let isPlayerOnePlaying = true
         currentPlayer.innerHTML = " Jugador 1";
         
+        let colorOne = document.querySelector('#one-color').value;
+        let colorTwo = document.querySelector('#two-color').value;
 
+        // El modo de juego es la cantidad de fichas en linea que se deben ubicar para ganar
+        let mode = parseInt(document.querySelector('input[name="inLine"]:checked').value);
 
-        let canvas = document.querySelector("canvas");
-        let ctx = canvas.getContext('2d');
-
+    
         let game = new Game(mode);
       
         let board = new Board(100, 100, 200, canvas);
@@ -140,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 game.winner
                 showWinner(game.winner);
                 game.resetGame(mode);
-                //startNewGame();  
             }
          
         }
@@ -157,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let btnClose = document.querySelector('#close');
             btnClose.addEventListener('click', () => {
                 winnerModal.style = 'display:none;';
+                
             });
         }
     } 
