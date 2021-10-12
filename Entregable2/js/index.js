@@ -138,8 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
            
             if (game.gameFinished == true && game.winner != null) {
                 game.winner
-                showWinner(game.winner);
-                game.resetGame(mode);
+                showWinner(game.winner); 
             }
          
         }
@@ -156,6 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
             let btnClose = document.querySelector('#close');
             btnClose.addEventListener('click', () => {
                 winnerModal.style = 'display:none;';
+                let decision = parseInt(document.querySelector('input[name="again"]:checked').value);
+                console.log(decision)
+                if(decision == 1){
+                    game.resetGame(mode);
+                    optionModal.style = 'display:block;'
+                }
                 
             });
         }
