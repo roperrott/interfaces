@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+body{
+    background: #f5b593;
+    display: flex;
+    align-items: center;
+}
+
+.container{
+    width: 920px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 100px;    
+    position: relative;
+    background: linear-gradient(#B7D6C7, #FFE2D1);
+    border: 2px solid rgba(0, 0, 0, 0.616);
+}
+
+.t-rex{
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    bottom: 30px;
+    left: 42px;
+    z-index: 2;
+    background: url(../img/dino.png) repeat-x 0px 0px;
+    background-size: 336px 84px;
+    background-position-x: 0px;
+}
+
+/*desplaza la imagen del fondo para que se mueva
+entre las dos fotos que muestran al dinosaurio corriendo*/
+@keyframes animateTRex {
+    from{
+        background-position-x: -84px;
+    }to{
+        background-position-x: -254px;
+    }
+}
+
+/* animacion por pasos para alternar las dos imagenes
+simulando la corrida del t-rex*/
+.running{
+    animation: animateTRex 0.25s steps(2) infinite;
+}
+
+/* para que el suelo simule ser infinito
+lo definimos el doble de ancho que el contenedor */
+.ground{
+    width: 200%;
+    height: 42px;
+    position: absolute;
+    background: url(../img/suelo.png) repeat-x 0px 0px;
+    background-size: 50% 42px;
+    bottom: 0;
+    left: 0;
+}
+
+.score{
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
+}

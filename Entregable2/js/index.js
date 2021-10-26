@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let ctx = canvas.getContext('2d');
 
     function startNewGame(){
-      
+        
         optionModal.style = 'display:hidden;'
         // Se limpia el intervalo de tiempo antes de comenzar un nuevo juego
         interval = window.clearInterval(interval);
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
         let game = new Game(mode);
-      
+     
         let board = new Board(100, 100, 200, canvas);
         let firstChipGame = new ChipGame(ctx, 34, colorOne, 1, imgPlayerOne);
         let secondChipGame = new ChipGame(ctx, 34, colorTwo, 2, imgPlayerTwo);
@@ -137,8 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
            
             if (game.gameFinished == true && game.winner != null) {
-                game.winner
-                showWinner(game.winner); 
+                showWinner(game.winner);
+                game.resetGame(mode);
             }
          
         }
@@ -156,12 +156,11 @@ document.addEventListener('DOMContentLoaded', () => {
             btnClose.addEventListener('click', () => {
                 winnerModal.style = 'display:none;';
                 let decision = parseInt(document.querySelector('input[name="again"]:checked').value);
-                console.log(decision)
                 if(decision == 1){
-                    game.resetGame(mode);
                     optionModal.style = 'display:block;'
+                }else{
+                    game.resetGame(mode);
                 }
-                
             });
         }
     } 
