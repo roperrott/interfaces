@@ -14,6 +14,7 @@ body{
 }
 
 .container{
+    overflow: hidden;
     width: 920px;
     height: 400px;
     margin: 0 auto;
@@ -53,6 +54,7 @@ simulando la corrida del t-rex*/
 
 /* para que el suelo simule ser infinito
 lo definimos el doble de ancho que el contenedor */
+/*
 .ground{
     width: 200%;
     height: 42px;
@@ -61,6 +63,62 @@ lo definimos el doble de ancho que el contenedor */
     background-size: 50% 42px;
     bottom: 0;
     left: 0;
+}
+*/
+
+@keyframes scroll {
+    0% { background-position-x: 0px; }
+    100% { background-position-x: -1840px; }
+}
+
+.layer{
+    position: absolute;
+    background-repeat: repeat-x;
+    background-size: 100% 42px;
+}
+
+.layer-1 {
+    width: 100%;
+    background-image: url("../img/suelo.png");
+    animation: scroll 12s infinite linear;
+    bottom: 0;
+    height: 42px;
+}
+
+.layer-2 {
+    width: 200%;
+    background-image: url("../img/cactus.png");
+    animation: scroll 12s infinite linear;
+    height: 50px;
+    transform: scale(1, 1.5);
+    bottom: 24px;
+}
+
+.layer-3 {
+    background-image: url("../img/nube.png");
+    animation: scroll 200s infinite linear;
+    height: 50px;
+    top: 40px;
+    transform: scale(1.5, 3.5);
+    width: 100%;
+    z-index: 3;
+}
+
+.layer-4 {
+    background-image: url("../img/ufos.png");
+    animation: scroll 9s infinite ease-in-out;
+    height: 50px;
+    top: 200px;
+    transform: scale(1.7);
+    width: 100%;
+}
+
+.layer-5 {
+    background: url(../img/sun.png) repeat-x 0px 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
 }
 
 .score{
