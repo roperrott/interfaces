@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let ground = document.querySelector('.ground');
     let container = document.querySelector('.container');
     let score = document.querySelector('.score');
+    let ufo = document.querySelector('.layer-4');
+    let cloud = document.querySelector('.layer-3');
+    let cactus = document.querySelector('.layer-2');
     let tRex = document.querySelector('.t-rex');
     let isEnd = false;
     let keyDown = false;
@@ -25,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 jump(); 
             }else if( keyCodes === 'KeyS'){
                 superMode();
+
             }else if( keyCodes === 'ArrowRight'){
                 runFaster();
             }
@@ -50,6 +54,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function superMode(){
+        container.classList.add('transition-super');
+      
         tRex.classList.add('superheroe');
+        ground.classList.add('ground-super');
+        cactus.classList.add('cactus-super');
+        cloud.classList.add('cloud-super');
+        ufo.classList.add('ufo-super');
+        setTimeout(() => {
+            tRex.classList.remove('superheroe');
+            ground.classList.remove('ground-super');
+            cactus.classList.remove('cactus-super');
+            cloud.classList.remove('cloud-super');
+            ufo.classList.remove('ufo-super');
+            container.classList.remove('transition-super')
+            
+            keyCodes = "";
+        }, 3000);
+    }
+
+    function runFaster(){
+   
     }
 })
