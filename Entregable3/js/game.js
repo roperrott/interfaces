@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if(keyDown){
             if(keyCodes === 'Space'){
                 jump(); 
+            }else if( keyCodes === 'KeyS'){
+                superMode();
+            }else if( keyCodes === 'ArrowRight'){
+                runFaster();
             }
         }else{
 
@@ -43,5 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tRex.classList.add('running');
         })
 
+    }
+
+    function superMode(){
+        tRex.classList.add('superheroe');
     }
 })
