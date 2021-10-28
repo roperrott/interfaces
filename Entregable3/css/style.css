@@ -16,7 +16,7 @@ body{
 .container{
     overflow: hidden;
     width: 920px;
-    height: 400px;
+    height: 500px;
     margin: 0 auto;
     margin-top: 100px;    
     position: relative;
@@ -26,14 +26,21 @@ body{
 
 .t-rex{
     width: 84px;
-    height: 200px;
+    height: 300px;
     position: absolute;
     bottom: 30px;
     left: 42px;
     background: url(../img/dino.png) repeat-x 0px 0px;
+    background-position: bottom;
     background-size: 336px 84px;
     background-position-x: 0px;
     z-index: 5;
+}
+
+.superheroe{
+    background: url(../img/dino-fly.png) repeat-x 0px 0px;
+    bottom: -60px;
+    width: 80px;
 }
 
 /*desplaza la imagen del fondo para que se mueva
@@ -55,9 +62,9 @@ simulando la corrida del t-rex*/
 
 @keyframes jump {
  
-    0% {background-position-y: -30px;}
-    50% {background-position-y: -80px;}
-    100% {background-position-y: -30px;}
+    0% {background-position-y: 0px;}
+    50% {background-position-y: 0px;}
+    100% {background-position-y: 0px;}
 }
 
 .jumping{
@@ -78,7 +85,7 @@ simulando la corrida del t-rex*/
 
 .layer-1 {
     width: 100%;
-    background-image: url("../img/suelo.png");
+    background-image: url(../img/suelo.png);
     animation: scroll 12s infinite linear;
     bottom: 0;
     height: 42px;
@@ -87,7 +94,7 @@ simulando la corrida del t-rex*/
 
 .layer-2 {
     width: 200%;
-    background-image: url("../img/cactus.png");
+    background-image: url(../img/cactus.png);
     animation: scroll 12s infinite linear;
     height: 50px;
     transform: scale(1, 1.5);
@@ -96,7 +103,7 @@ simulando la corrida del t-rex*/
 }
 
 .layer-3 {
-    background-image: url("../img/nube.png");
+    background-image: url(../img/nube.png);
     animation: scroll 200s infinite linear;
     height: 50px;
     top: 40px;
@@ -106,7 +113,7 @@ simulando la corrida del t-rex*/
 }
 
 .layer-4 {
-    background-image: url("../img/ufos.png");
+    background-image: url(../img/ufos.png);
     animation: scroll 9s infinite ease-in-out;
     height: 50px;
     top: 200px;
@@ -116,7 +123,7 @@ simulando la corrida del t-rex*/
 } 
 
 .layer-5 {
-    background: url("../img/sun.png") repeat-x 0px 0px;
+    background: url(../img/sun.png) repeat-x 0px 0px;
     position: absolute;
     width: 100%;
     height: 100%;
