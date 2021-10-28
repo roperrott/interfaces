@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if(keyCodes === 'Space'){
                 jump(); 
             }
-            
         }else{
 
         }
@@ -45,12 +44,4 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
     }
-
-    // init();
-    // while(!isEnd){
-    //     processInput();
-    //     updateState();
-    //     draw();
-    // }
-    // end();
 })
