@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let ground = document.querySelector('.ground');
     let container = document.querySelector('.container');
     let score = document.querySelector('.score');
+    let scoreValue = document.querySelector('#score-value')
     let ufo = document.querySelector('.layer-4');
     let cloud = document.querySelector('.layer-3');
     let cactus = document.querySelector('.layer-2');
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isEnd = false;
     let keyDown = false;
     let keyCodes = 0;
+    let isFlying = false;
     
 
     window.addEventListener('keydown', (e) =>{
@@ -23,12 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let intervalId = setInterval(function()
     {
-        if(keyDown){
+        calculateScore();
+        if(keyDown && !isFlying){
             if(keyCodes === 'Space'){
                 jump(); 
             }else if( keyCodes === 'KeyS'){
+                isFlying = true;
                 superMode();
-
             }else if( keyCodes === 'ArrowRight'){
                 runFaster();
             }
@@ -41,6 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
         window.clearInterval(intervalId);
     }
 
+    function calculateScore() {
+        let value = parseInt(scoreValue.innerHTML);
+        value += 1;
+        scoreValue.innerHTML = value;
+    }
+
     function jump(){
         tRex.classList.remove('running');
         tRex.classList.add('jumping');
@@ -50,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tRex.classList.remove('jumping');
             tRex.classList.add('running');
         })
-
     }
 
     function superMode(){
@@ -70,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             container.classList.remove('transition-super')
             
             keyCodes = "";
+            isFlying = false;
         }, 3000);
     }
 
