@@ -36,7 +36,7 @@ body{
     position: absolute;
     bottom: 30px;
     left: 42px;
-    background: url(../img/dino.png) repeat-x 0px 0px;
+    background: url(../img/dino2.png) repeat-x 0px 0px;
     background-position: bottom;
     background-size: 336px 84px;
     background-position-x: 0px;
@@ -74,16 +74,6 @@ simulando la corrida del t-rex*/
     50% {background-position-y: 20px;}
     100% {background-position-y: 210px;}
 } 
-
-@keyframes readyToFly {
-    0% {background-position-y: 210px;}
-    20% {background-position-y: 20px;}
-    30% {background-position-y: 20px;}
-    40% {background-position-y: 20px;}
-    50% {background-position-y: 20px;}
-    100% {background-position-y: 20px;}
-} 
-
 
 .jumping{
     animation: jump 1.5s steps(20) 1;
@@ -138,7 +128,53 @@ simulando la corrida del t-rex*/
     transform: scale(1.7);
     width: 100%;
     z-index: 6;
-} 
+}
+
+@keyframes animateEnemy {
+    from{
+        background-position-x: -84px;
+    }to{
+        background-position-x: -254px;
+    }
+}
+
+@keyframes oneScroll {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -50;
+    }
+}
+
+.layer-6 {
+    background: url(../img/testCactus3.png) repeat-x 0px 0px;
+    width: 69px;
+    height: 300px;
+    position: absolute;
+    bottom: 24px;
+    left: 4px;
+    background-position: bottom;
+    background-size: 250px 84px;
+    background-position-x: 0px;
+    z-index: 5;
+    animation: oneScroll 5s infinite linear, animateEnemy 0.25s steps(2) infinite ;  
+}
+
+.layer-7 {
+    background: url(../img/ufo.png) repeat-x 0px 0px;
+    width: 75px;
+    height: 50px;
+    position: absolute;
+    bottom: 250px;
+    left: 4px;
+    background-position: bottom;
+    background-position-x: 0px;
+    z-index: 5;
+    animation: oneScroll 4s infinite ease-in-out;  
+}
+
+
 
 .layer-5 {
     background: url(../img/sun.png) repeat-x 0px 0px;

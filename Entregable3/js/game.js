@@ -8,11 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let cloud = document.querySelector('.layer-3');
     let cactus = document.querySelector('.layer-2');
     let tRex = document.querySelector('.t-rex');
+    let testCactus = document.querySelector('.layer-6');
+    let testUfo = document.querySelector('.layer-7');
     let isEnd = false;
     let keyDown = false;
     let keyCodes = 0;
     let isFlying = false;
-    
+    let isJumping = false;
 
     window.addEventListener('keydown', (e) =>{
         keyDown = true;
@@ -26,10 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervalId = setInterval(function()
     {
         calculateScore();
+        checkColission();
         if(keyDown && !isFlying){
             if(keyCodes === 'Space'){
+                isJumping = true;
                 jump(); 
-            }else if( keyCodes === 'KeyS'){
+            }else if( keyCodes === 'KeyS' && isJumping){
                 isFlying = true;
                 superMode();
             }else if( keyCodes === 'ArrowRight'){
@@ -42,6 +46,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(isEnd){
         window.clearInterval(intervalId);
+    }
+
+    function checkColission() {
+    
+        // T-rex 
+        let heroWidth = tRex.getBoundingClientRect().width
+        let heroHeight = tRex.getBoundingClientRect().height
+
+        // Alien bug position
+        let cactusX = testCactus.getBoundingClientRect().x;
+        let cactusY = testCactus.getBoundingClientRect().y;
+
+        // Hero bounds
+        // ESTAN MAL CALCULADAS ACTUALMENTE
+        let fromX = tRex.getBoundingClientRect().x - 42;
+        let toX = tRex.getBoundingClientRect().x + 42;
+        let fromY = tRex.getBoundingClientRect().y - (heroHeight / 2);
+        let toY = tRex.getBoundingClientRect().y + (heroHeight / 2);
+
+        let ufoX = testUfo.getBoundingClientRect().x;
+        let ufoY = testCactus.getBoundingClientRect().y;
+
+        if ((cactusX > fromX && cactusX < toX) && (cactusY > fromY && cactusY < toY)) {
+            // GAME OVER
+            console.log("MUERTE EN TIERRA")
+        }
+        if ((ufoX > fromX && ufoX < toX) && (ufoY > fromY && ufoY < toY)) {
+            // GAME OVER
+            console.log("MUERTE EN AIRE")
+        }
     }
 
     function calculateScore() {
@@ -58,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             keyDown = false; 
             tRex.classList.remove('jumping');
             tRex.classList.add('running');
+            isJumping = false;
         })
     }
 
