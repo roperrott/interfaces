@@ -219,6 +219,15 @@ simulando la corrida del t-rex*/
     z-index: 5;  
 }
 
+.layer-7 {
+    background: url(../img/retro_coin.png) repeat-x 0px 0px;
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    bottom: 124px;
+    left: 50px;
+}
+
 .ground-move{
     animation: scroll 12s infinite linear;
 }
@@ -257,6 +266,14 @@ simulando la corrida del t-rex*/
 
 .octopus-super{
     animation: oneScroll 0.75s infinite linear, animateEnemy 0.6s steps(2) infinite;
+}
+
+.coin-move {
+    animation: blinker 1.5s infinite linear, oneScroll 6s infinite linear;
+}
+
+.coin-super {
+    animation: blinker .5s infinite linear, oneScroll 1.5s infinite linear;
 }
 
 .score{

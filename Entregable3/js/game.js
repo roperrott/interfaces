@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let cactus = document.querySelector('.layer-2');
     let tRex = document.querySelector('.t-rex');
     let octopus = document.querySelector('.layer-6');
+    let coin = document.querySelector('.layer-7');
     let isEnd = true;
     let keyDown = false;
     let keyCodes = 0;
@@ -19,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('keydown', (e) =>{
         if (isEnd && e.code == 'Enter') {
-            console.log("START GAME BECAUSE KEYDOWN");
             startGame();
         }
         keyDown = true;
@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkColission() {
         const ufoOffsetY = -250;
+        const coinOffsetY = -264;
 
         // T-rex 
         let heroHeight = tRex.getBoundingClientRect().height
@@ -42,16 +43,33 @@ document.addEventListener('DOMContentLoaded', () => {
         let fromY = tRex.getBoundingClientRect().y - (heroHeight / 2);
         let toY = tRex.getBoundingClientRect().y + (heroHeight / 2);
 
+        // UFO position
         let ufoX = ufo.getBoundingClientRect().x;
         let ufoY = octopus.getBoundingClientRect().y + ufoOffsetY;
 
+        // Coin position
+        let coinX = coin.getBoundingClientRect().x;
+        let coinY = coin.getBoundingClientRect().y + coinOffsetY;
+
+        console.log("REX Y from " + fromY + "to" + toY);
+        console.log("COIN POS -> " + coinY);
+
+        if ((coinX > fromX && coinX < toX) && (coinY > fromY && coinY < toY)) {
+            var soundEffect = new Audio("sounds/coin.mp3");
+            soundEffect.loop = false;
+            soundEffect.play();
+            coin.classList.add('hidden');
+            setTimeout(() => {  
+                coin.classList.remove('hidden');
+            }, 1000);
+            calculateScore(500);
+        }
+
         if (keyCodes != 'KeyS') {
             if ((octopusX > fromX && octopusX < toX) && (octopusY > fromY && octopusY < toY)) {
-                console.log("MUERTE EN TIERRA")
                 gameOver();
             }
             if ((ufoX > fromX && ufoX < toX) && (ufoY > fromY && ufoY < toY)) {
-                console.log("MUERTE EN Aire")
                 gameOver();
             }
         }
@@ -79,11 +97,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startGame() {
+
+        const audio = document.querySelector("audio");
+        audio.volume = 0.4;
+        audio.play();
+
         divNoConnection.classList.add('hidden');
         divGameOver.classList.add('hidden');
         isEnd = false;
         resetScore();
-        startInterval();        
+        startInterval();
+        coin.classList.remove('hidden'); 
+        coin.classList.add('coin-move');       
         ground.classList.add('ground-move');
         cactus.classList.add('cactus-move');
         cloud.classList.add('cloud-move');
@@ -94,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function gameOver() {
         window.clearInterval(intervalId);
+        coin.classList.add('hidden');
         tRex.classList.remove('running');
         ground.classList.remove('ground-move');
         cactus.classList.remove('cactus-move');
@@ -104,9 +130,9 @@ document.addEventListener('DOMContentLoaded', () => {
         isEnd = true;
     }
 
-    function calculateScore() {
+    function calculateScore(extra = 0) {
         let value = parseInt(scoreValue.innerHTML);
-        value += 1;
+        value = value + 1 + extra;
         scoreValue.innerHTML = value;
     }
 
@@ -133,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cloud.classList.add('cloud-super');
         ufo.classList.add('ufo-super');
         octopus.classList.add('octopus-super');
+        coin.classList.add('coin-super');
         setTimeout(() => {
             tRex.classList.remove('superheroe');
             ground.classList.remove('ground-super');
@@ -141,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ufo.classList.remove('ufo-super');
             container.classList.remove('transition-super');
             octopus.classList.remove('octopus-super');
+            coin.classList.remove('coin-super');
 
             keyCodes = "";
             isFlying = false;
