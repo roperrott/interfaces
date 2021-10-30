@@ -25,7 +25,6 @@ body{
 }
 
 .transition-super{
-    
     background: rgb(25, 25, 112);
     z-index: 1;
 }
@@ -36,7 +35,7 @@ body{
     position: absolute;
     bottom: 30px;
     left: 42px;
-    background: url(../img/dino2.png) repeat-x 0px 0px;
+    background: url(../img/dino.png) repeat-x 0px 0px;
     background-position: bottom;
     background-size: 336px 84px;
     background-position-x: 0px;
@@ -59,75 +58,13 @@ entre las dos fotos que muestran al dinosaurio corriendo*/
     }
 }
 
-/* animacion por pasos para alternar las dos imagenes
-simulando la corrida del t-rex*/
-.running{
-    animation: animateTRex 0.25s steps(2) infinite;
-}
-
-
 @keyframes jump {
-    0% {background-position-y: 210px;}
-    20% {background-position-y: 20px;}
-    30% {background-position-y: 20px;}
-    40% {background-position-y: 20px;}
-    50% {background-position-y: 20px;}
-    100% {background-position-y: 210px;}
-} 
-
-.jumping{
-    animation: jump 1.5s steps(20) 1;
-}
-
-
-@keyframes scroll {
-    0% { background-position-x: 0px; }
-    100% { background-position-x: -1840px; }
-}
-
-.layer{
-    position: absolute;
-    background-repeat: repeat-x;
-    background-size: 100% 42px;
-}
-
-.layer-1 {
-    width: 100%;
-    background-image: url(../img/suelo.png);
-    animation: scroll 12s infinite linear;
-    bottom: 0;
-    height: 42px;
-    z-index: 4;
-}
-
-.layer-2 {
-    width: 200%;
-    background-image: url(../img/cactus.png);
-    animation: scroll 12s infinite linear;
-    height: 50px;
-    transform: scale(1, 1.5);
-    bottom: 24px;
-    z-index: 4;
-}
-
-.layer-3 {
-    background-image: url(../img/nube.png);
-    animation: scroll 200s infinite linear;
-    height: 50px;
-    top: 40px;
-    transform: scale(1.5, 3.5);
-    width: 100%;
-    z-index: 3;
-}
-
-.layer-4 {
-    background-image: url(../img/ufos.png);
-    animation: scroll 9s infinite ease-in-out;
-    height: 50px;
-    top: 200px;
-    transform: scale(1.7);
-    width: 100%;
-    z-index: 6;
+    0% {top: 160px;}
+    20% {top: 20px;}
+    30% {top: 20px;}
+    40% {top: 20px;}
+    50% {top: 20px;}
+    100% {top: 160px;}
 }
 
 @keyframes animateEnemy {
@@ -147,34 +84,79 @@ simulando la corrida del t-rex*/
     }
 }
 
-.layer-6 {
-    background: url(../img/testCactus3.png) repeat-x 0px 0px;
-    width: 69px;
-    height: 300px;
-    position: absolute;
-    bottom: 24px;
-    left: 4px;
-    background-position: bottom;
-    background-size: 250px 84px;
-    background-position-x: 0px;
-    z-index: 5;
-    animation: oneScroll 5s infinite linear, animateEnemy 0.25s steps(2) infinite ;  
+@keyframes ufoScroll {
+    0% {
+        left: 50%;
+    }
+    25% {
+        left: 0%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: 50%;
+    }
 }
 
-.layer-7 {
+@keyframes scroll {
+    0% { background-position-x: 0px; }
+    100% { background-position-x: -1840px; }
+}
+
+/* animacion por pasos para alternar las dos imagenes
+simulando la corrida del t-rex*/
+.running{
+    animation: animateTRex 0.25s steps(2) infinite;
+}
+
+.jumping{
+    animation: jump 1.5s steps(20) 1;
+}
+
+.layer{
+    position: absolute;
+    background-repeat: repeat-x;
+    background-size: 100% 42px;
+}
+
+.layer-1 {
+    width: 100%;
+    background-image: url(../img/suelo.png);
+    bottom: 0;
+    height: 42px;
+    z-index: 4;
+}
+
+.layer-2 {
+    width: 200%;
+    background-image: url(../img/cactus.png);
+    height: 50px;
+    transform: scale(1, 1.5);
+    bottom: 24px;
+    z-index: 4;
+}
+
+.layer-3 {
+    background-image: url(../img/nube.png);
+    height: 50px;
+    top: 40px;
+    transform: scale(1.5, 3.5);
+    width: 100%;
+    z-index: 3;
+}
+
+.layer-4 {
     background: url(../img/ufo.png) repeat-x 0px 0px;
     width: 75px;
     height: 50px;
     position: absolute;
     bottom: 250px;
-    left: 4px;
+    left: 250px;
     background-position: bottom;
     background-position-x: 0px;
-    z-index: 5;
-    animation: oneScroll 4s infinite ease-in-out;  
+    z-index: 5;  
 }
-
-
 
 .layer-5 {
     background: url(../img/sun.png) repeat-x 0px 0px;
@@ -184,38 +166,57 @@ simulando la corrida del t-rex*/
     z-index: 2;
 }
 
+.layer-6 {
+    background: url(../img/octopus.png) repeat-x 0px 0px;
+    width: 69px;
+    height: 300px;
+    position: absolute;
+    bottom: 24px;
+    left: 4px;
+    background-position: bottom;
+    background-size: 250px 84px;
+    background-position-x: 0px;
+    z-index: 5;  
+}
+
+.ground-move{
+    animation: scroll 12s infinite linear;
+}
 
 .ground-super{
     animation: scroll 3s infinite linear;
+}
+
+.cactus-move{
+    animation: scroll 12s infinite linear;
 }
 
 .cactus-super{
     animation: scroll 3s infinite linear;
 }
 
+.cloud-move{
+    animation: scroll 200s infinite linear;
+}
+
 .cloud-super{
     animation: scroll 50s infinite linear;
 }
 
+.ufo-move{
+    animation: ufoScroll 6s infinite ease-in-out;
+}
+
 .ufo-super{
-    animation: scroll 2.25s infinite linear;
+    animation: ufoScroll 1.5s infinite linear;
 }
 
-.ground-faster{
-    animation: scroll 6s infinite linear;
-
+.octopus-move{
+    animation: oneScroll 5s infinite linear, animateEnemy 0.25s steps(2) infinite;
 }
 
-.cactus-faster{
-    animation: scroll 6s infinite linear;
-}
-
-.cloud-faster{
-    animation: scroll 100s infinite linear;
-}
-
-.ufo-faster{
-    animation: scroll 4.5s infinite linear;
+.octopus-super{
+    animation: oneScroll 0.75s infinite linear, animateEnemy 0.6s steps(2) infinite;
 }
 
 .score{
