@@ -112,6 +112,38 @@ entre las dos fotos que muestran al dinosaurio corriendo*/
     100% { background-position-x: -1840px; }
 }
 
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+.hidden {
+    display: none;
+}
+
+.message {
+    position: relative;
+    font-size: 100px;
+    text-align: center;
+    top: 10%;
+    z-index: 6;
+    background-color: rgb(201, 211, 233);
+}
+
+.short-message-container {
+    position: relative;
+    z-index: 6;
+    padding-top: 50px;
+    font-size: large;
+    width: 100%;
+}
+.short-message {
+    text-align: end;
+    padding-right: 15px;
+    animation: blinker 2s linear infinite;
+}
+
 /* animacion por pasos para alternar las dos imagenes
 simulando la corrida del t-rex*/
 .running{
@@ -233,7 +265,7 @@ simulando la corrida del t-rex*/
     position: absolute;
     top: 10px;
     right: 15px;
-    color: rgb(48, 45, 45);
+    color: black;
     font-size: 30px;
     font-weight: bold;
     text-align: right;

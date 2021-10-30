@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let divGameOver = document.querySelector('.game-over');
+    let divGameOver = document.querySelector('#game-over');
+    let divNoConnection = document.querySelector('#connection-lost');
     let ground = document.querySelector('.ground');
     let container = document.querySelector('.container');
     let score = document.querySelector('.score');
@@ -78,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startGame() {
+        divNoConnection.classList.add('hidden');
+        divGameOver.classList.add('hidden');
         isEnd = false;
         resetScore();
         startInterval();        
@@ -97,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cloud.classList.remove('cloud-move');
         octopus.classList.remove('octopus-move');
         ufo.classList.remove('ufo-move');
+        divGameOver.classList.remove('hidden');
         isEnd = true;
     }
 
@@ -116,13 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 tRex.classList.remove('jumping');
                 tRex.classList.add('running');
                 isJumping = false;
-            })
+            });
         }
     }
 
     function superMode(){
         container.classList.add('transition-super');
-      
+    
         tRex.classList.add('superheroe');
         ground.classList.add('ground-super');
         cactus.classList.add('cactus-super');
@@ -142,4 +146,4 @@ document.addEventListener('DOMContentLoaded', () => {
             isFlying = false;
         }, 3000);
     }
-})
+});
