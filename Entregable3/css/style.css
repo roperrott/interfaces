@@ -5,6 +5,14 @@
     text-decoration: none;
     border: none;
     outline: none;
+    font-family: pixelArt;
+}
+
+
+@font-face{
+    font-family: pixelArt;
+    src: url(../fonts/ARCADECLASSIC.TTF);
+    font-weight: bold;
 }
 
 body{
@@ -234,5 +242,5 @@ simulando la corrida del t-rex*/
 }
 
 .game-over{
-    display: none;
+    /* display: none; */
 }
