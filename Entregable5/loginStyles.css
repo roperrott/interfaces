@@ -2,6 +2,7 @@
     font-family: 'Mulish', sans-serif;
 }
 
+
 .container-login{
     width: 375px;
     height: 812px;
@@ -19,15 +20,15 @@
     align-self: center;
     margin-bottom: 55px;
     position: absolute;
-    left: calc(50% - 246px/2 + 8px);
-    top: calc(50% - 52px/2 - 67px);
+    top: 343px;
+    left: 65px;
     border-radius: 5px;
 }
 
 .sign-up{
     width: 246px;
     height: 52px;  
-    left: 63px;
+    left: 55px;
     top: 419px;
     background-color: #203F65;
     border-style: none;
@@ -36,11 +37,15 @@
     margin: 10px;
     position: absolute;
     border-radius: 5px;
+    position: absolute;
 }
 
 .logo{
+    position: absolute;
     width: 173px;
     height: 152px;
+    left: 101px;
+    top: 73px;
 }
 
 .home-photo{
@@ -52,10 +57,59 @@
 }
 
 .home-message{
-    font-weight: bold;
+    position: absolute;
+    width: 202px;
+    height: 53px;
+    left: 110px;
+    top: 482px;
+    
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 16px;
+    /* or 89% */
+    
+    display: flex;
+    align-items: center;
     text-align: center;
+    
+    /* Light / neutral.labelSecondary */
+    
+    color: #3D424D;
 }
 
-.button-text{
-    
+.button-text-si{
+    color: #203F65;
+    font-weight: bold;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.button-text-su{
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.login-title1{
+    position: absolute;
+    width: 148px;
+    height: 40px;
+    left: 107px;
+    top: 242px;
+    font-weight: 800;
+    font-size: 45px;
+    color: #3D424D;
+}
+
+.login-title2{
+    position: absolute;
+    width: 148px;
+    height: 40px;
+    left: 153px;
+    top: 295px;
+    font-weight: 800;
+    font-size: 20px;
+    color: #3D424D;
 }
