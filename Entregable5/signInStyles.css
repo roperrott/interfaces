@@ -23,7 +23,6 @@
     margin-left: 28px;
     margin-top: 32px;
     font-size: 24px;
-    /* font-weight: 800; */
     margin-bottom: 8px;
 }
 
@@ -59,19 +58,29 @@ input {
     border: none;
     background-color: transparent;
     width: 100%;
-    margin-left: 24px;
+    margin-left: 12px;
     font-size: 12px;
-    /* font-weight: 400; */
 }
 
 input:focus {
     outline: none;
 }
 
+#eye-icon {
+    width: 21px;
+    height: auto;
+    margin-right: 14px;
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+}
+
 .label-input {
     align-self: flex-start;
     font-size: 12px;
-    /* font-weight: 700; */
     margin-left: 12px;
     margin-top: 4px;
     margin-bottom: 4px;
