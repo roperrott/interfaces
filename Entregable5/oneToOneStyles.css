@@ -28,6 +28,9 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
 }
 
 .left-chat-container {
@@ -42,12 +45,23 @@
     border-radius: 0px 5px 5px 5px;
     background-color: #F1F2E6;
     font-size: 13px;
+    padding: 16px;
+    margin-right: 16px;
 }
 
 .right-chat {
     border-radius: 5px 0px 5px 5px;
     background-color: #F1F2E6;
     font-size: 13px;
+    padding: 16px;
+    margin-left: 16px;
+}
+
+.icon-image {
+    height: 26px;
+    width: auto;
+    margin-left: 8px;
+    margin-top: 16px;
 }
 
 #separator {
@@ -56,6 +70,45 @@
     height: 2px;
 }
 
+#thin-separator {
+    background-color: black;
+    opacity: 0.2;
+    height: 0.5px;
+    margin: 0 auto;
+}
+
+.chat-footer-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 95%;
+}
+
+.input-container {
+    margin-top: 16px;
+    padding-right: 60px;
+}
+
 .top-container {
     display: flex;
+}
+
+input {
+    border: none;
+    background-color: transparent;
+    width: 140%;
+    font-size: 12px;
+}
+
+input:focus {
+    outline: none;
+}
+
+#input-base {
+    width: 140%;
 }
