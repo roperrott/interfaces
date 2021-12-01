@@ -40,6 +40,17 @@
     position: absolute;
 }
 
+  
+.sign-up:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.sign-up:hover{
+    transition-duration: 0.4s;
+    background-color:#60C5D1;
+    border: 2px solid #203F65 ;
+}
 .logo{
     position: absolute;
     width: 173px;
@@ -91,6 +102,7 @@
     font-size: 13px;
     font-weight: 900;
 }
+
 
 .login-title1{
     position: absolute;
