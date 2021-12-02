@@ -23,7 +23,7 @@
 }
 
 
-#separator{
+.separator{
     background-color: black;
     opacity: 0.2;
     height: 2px;
@@ -65,7 +65,7 @@
 
 .container-login{
     width: 375px;
-    height: 812px;
+    height: 812;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -84,7 +84,7 @@ header{
     right: 14.13%;
     top: 35%;
     bottom: 36.05%;
-
+    opacity: 70%;
     /* Light / neutral.labelPrimary */
 
 }
@@ -101,6 +101,8 @@ header{
     height: 30px;
     left: 327px;
     top: 32px;
+    opacity: 70%;
+
 
 }
 
@@ -251,14 +253,15 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
+    padding: 12px;
 
     position: static;
-    width: 343px;
-    height: 329px;
-    left: 0.32px;
-    top: 55px;
+    width: auto;
+    height: 327px;
+    left: 0px;
+    top: 1px;
 
+    background: #F7F7F8;
 
     /* Inside Auto Layout */
 
@@ -318,8 +321,263 @@ header{
     color: #006C84;
 
     display: flex;
-    align-self: left;
     /* Inside Auto Layout */
 
     margin: 0px 4px;
+}
+
+.main-content{
+    position: static;
+    width: 326px;
+    height: 189px;
+    left: 8.5px;
+    top: 98px;
+
+    background: url(assets/labrador.jpg);
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    margin: 12px 0px;
+}
+
+.container-content{
+    display: flex;
+    flex-direction: column-reverse;
+    
+}
+
+.like{
+    position: static;
+    width: 179px;
+    height: 16px;
+    left: 0px;
+    top: 0px;
+
+    /* text12 (paragraph) */
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+
+    /* Light / neutral.labelTertiary */
+
+    color: #6C727E;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 12px;
+}
+
+
+.comments{
+    position: static;
+    width: 68px;
+    height: 16px;
+    left: 0px;
+    top: 0px;
+
+    /* text12 (paragraph) */
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+
+    /* Light / neutral.labelTertiary */
+
+    color: #6C727E;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 12px;
+}
+
+.share{
+    position: static;
+    width: 48px;
+    height: 16px;
+    left: 80px;
+    top: 0px;
+
+    /* text12 (paragraph) */
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+
+    /* Light / neutral.labelTertiary */
+
+    color: #6C727E;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 12px;
+}
+
+.footer-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px 12px;
+    
+    position: static;
+    width: auto;
+    height: 40px;
+    left: 0.32px;
+    top: 384px;
+    
+    /* Light / neutral.containerBackground */
+    
+    background: #FFFFFF;
+    border-radius: 0px 0px 4px 4px;
+    
+    /* Inside Auto Layout */
+    
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+#footer-like{
+    width: 24px;
+    height: 24px;
+    left: 6px;
+    top: 16px;
+}
+
+.footer-text{
+
+    position: static;
+    width: 70px;
+    height: 19px;
+    left: 0px;
+    top: 0px;
+
+    /* text12Bold */
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #4887A2;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 0px 0px 5px;
+}
+
+#footer-coment{
+    width: 27px;
+    height: 23px;
+    left: 6px;
+    top: 16px;
+}
+
+#footer-share{
+    width: 27px;
+    height: 27px;
+    left: 6px;
+    top: 16px;
+}
+
+#footer-save{
+    width: 27px;
+    height: 27px;
+    left: 6px;
+    top: 16px;
+}
+
+.footer-page{
+    position: fixed;
+    left: 0%;
+    right: 0%;
+    bottom: 40px;
+    height: 40px;
+    background: #FFFFFF;
+}
+
+#home{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 16px;    
+    top: 27px;
+    opacity: 70%;
+
+}
+
+#calendar{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 94px;
+    top: 27px;
+    opacity: 70%;
+
+}
+
+#notifications{
+    position: absolute;
+    width: 32px;
+    height: 34.13px;
+    left: 171.5px;
+    top: 26px;
+    opacity: 70%;
+
+}
+
+#friends{
+    position: absolute;
+    width: 37px;
+    height: 37px;
+    left: 249px;
+    top: 27px;
+    opacity: 70%;
+}
+
+#profile{
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    left: 325px;
+    top: 30px;
+    opacity: 70%;
 }
