@@ -364,7 +364,6 @@ header{
 .container-content{
     display: flex;
     flex-direction: column-reverse;
-    
 }
 
 .like{
