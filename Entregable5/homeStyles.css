@@ -489,6 +489,15 @@ header{
     top: 16px;
 }
 
+#footer-dislike{
+    width: 24px;
+    height: 24px;
+    left: 6px;
+    top: 16px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
 .footer-text{
 
     position: static;
