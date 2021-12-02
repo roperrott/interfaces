@@ -40,17 +40,17 @@
     position: absolute;
 }
 
-  
-.sign-up:hover {
-    background-color: #4CAF50; /* Green */
-    color: white;
+@media (hover: hover) {
+    
+    .sign-up:hover{
+        transition-duration: 0.4s;
+        background-color:#60C5D1;
+        border: 2px solid #203F65 ;
+        color: #3D424D;
+    }
 }
 
-.sign-up:hover{
-    transition-duration: 0.4s;
-    background-color:#60C5D1;
-    border: 2px solid #203F65 ;
-}
+
 .logo{
     position: absolute;
     width: 173px;
