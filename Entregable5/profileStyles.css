@@ -86,7 +86,7 @@ p{
     height: 440px;
     left: 12px;
     top: 60px;
-    margin-bottom: 44px;
+    margin-bottom: 64px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 .post2{
@@ -137,7 +137,7 @@ p{
 
 .user-post{
     
-    position: static;
+    position: ab;
     width: 40.63px;
     height: 41px;
     left: 16px;
@@ -167,7 +167,7 @@ p{
 }
 
 .status-profile {
-    position: fixed;
+    position: absolute;
     width: 15px;
     height: 15px;
     left: 103px;
@@ -492,6 +492,16 @@ p{
     margin: 0px 0px;
 }
 
+.footer-page{
+    position: fixed;
+    left: 0%;
+    right: 0%;
+    bottom: 0px;
+    height: 60px;
+    background: #FFFFFF;
+}
+
+
 #footer-like{
     width: 24px;
     height: 24px;
@@ -550,4 +560,57 @@ p{
     height: 27px;
     left: 6px;
     top: 16px;
+}
+
+
+#home{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 16px;    
+    top: 15px;
+    opacity: 70%;
+
+}
+
+#calendar{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 94px;
+    top: 15px;
+    opacity: 70%;
+
+}
+
+#notifications{
+    position: absolute;
+    width: 32px;
+    height: 34.13px;
+    left: 171.5px;
+    top: 15px;
+    opacity: 70%;
+
+}
+
+#friends{
+    position: absolute;
+    width: 37px;
+    height: 37px;
+    left: 249px;
+    top: 15px;
+    opacity: 70%;
+}
+
+#profile{
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    left: 325px;
+    top: 18px;
+    opacity: 70%;
+}
+
+#last {
+    margin-bottom: 220px;
 }

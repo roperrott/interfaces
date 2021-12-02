@@ -600,3 +600,7 @@ section.body-container{
     top: 18px;
     opacity: 70%;
 }
+
+#last {
+    margin-bottom: 260px;
+}
