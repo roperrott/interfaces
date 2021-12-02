@@ -1,0 +1,122 @@
+*{
+    font-family: 'Mulish', sans-serif;
+}
+
+#back-image {
+    width: 12px;
+    height: auto;
+    margin-top: 70px;
+    margin-left: 16px;
+    align-self: flex-start;
+}
+
+.flex {
+    display: flex;
+}
+
+.container-input {
+    width: 280px;
+    height: 38px;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    background-color: #F7F7F7;
+    flex-direction: column;
+    border: black 1px solid;
+    border-radius: 5px;
+    margin-top: 59px;
+    margin-left: 16px;
+}
+
+.separator {
+    background-color: black;
+    opacity: 0.2;
+    height: 2px;
+    margin: 0 auto;
+    margin-top: 6px;
+}
+
+input {
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 12px;
+    width: 90%;
+}
+
+input:focus {
+    outline: none;
+}
+
+.navbar-text {
+    font-size: 14px;
+    color: black;
+    opacity: 0.75;
+    margin-left: 16px;
+}
+
+.navbar-text:hover, .selected:hover {
+    background-color: #203F65;
+    color: white;
+    cursor: pointer;
+    border-radius: 10%;
+    padding: 4px;
+    opacity: 0.9;
+}
+
+.selected {
+    font-size: 14px;
+    color: #203F65;
+    margin-left: 24px;
+}
+
+.navbar {
+    margin-top: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.thin-separator {
+    background-color: black;
+    opacity: 0.2;
+    margin: 0 auto;
+}
+
+.card-container {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+}
+
+p {
+    margin: 0px;
+}
+
+.name {
+    font-size: 12px;
+    color: #282B33;
+    font-weight: 750;
+    margin-left: 16px;
+    margin-top: 3px;
+    margin-bottom: 2px;
+    letter-spacing: 1px;
+}
+
+.followers-number {
+    color: #6C727E;
+    font-size: 12px;
+    margin-left: 16px;
+}
+
+.add-friend-icon {
+    width: 28px;
+    height: 28px;
+    margin-left: auto;
+    margin-right: 16px;
+    margin-top: 4px;
+}
