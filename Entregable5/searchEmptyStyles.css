@@ -82,3 +82,11 @@ p {
     margin-left: 16px;
     margin-bottom: 16px;
 }
+
+.search-icon {
+    width: 25px;
+    height: 25px;
+    margin-top: 68px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
