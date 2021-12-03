@@ -48,7 +48,6 @@
     position: absolute;
     width: 227px;
     height: 58px;
-    left: 130px;
     top: 2px;
     
     font-family: Mulish;
@@ -398,7 +397,7 @@ section.body-container{
 }
 
 .name4{
-    color: #282B33;
+    
     top: 337px;
 }
 
@@ -519,6 +518,7 @@ section.body-container{
 
     color: #6C727E;
 }
+
 .text4{
     top: 361px;
 }
@@ -545,10 +545,9 @@ section.body-container{
 
 
 .separator1{
-    position: relative;
+    position: absolute;
     left: -0.54%;
     right: 0%;
-    top: 240px;
     bottom: 1.1%;
 
 }
