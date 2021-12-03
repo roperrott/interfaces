@@ -381,21 +381,24 @@ section.body-container{
     /* or 114% */
     
     
-    color: #000000;
+    color: #282B33;
     
 }
 
 .name2{
+    color: #282B33;
     top: 137px;
 
     
 }
 
 .name3{
+    color: #282B33;
     top: 237px;
 }
 
 .name4{
+    color: #282B33;
     top: 337px;
 }
 
@@ -553,6 +556,8 @@ section.body-container{
 .separator2{
     position: relative;
     top: 375px;
+    height: 2px;
+    opacity: 0.8;
 }
 
 .separator3{
