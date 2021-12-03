@@ -134,8 +134,9 @@
     position: absolute;
     width: 148px;
     height: 40px;
-    left: 107px;
-    top: 242px;
+    left: 113.5px;
+    right: 113.5px;
+    top: 302px;
     font-weight: 800;
     font-size: 70px;
     color: #3D424D;
@@ -143,10 +144,10 @@
 
 .login-title2{
     position: absolute;
-    width: 148px;
+    width: auto;
     height: 40px;
-    left: 155px;
-    top: 307px;
+    left: 114px;
+    top: 367px;
     font-weight: 800;
     font-size: 30px;
     color: #3D424D;
