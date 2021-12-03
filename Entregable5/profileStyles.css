@@ -614,3 +614,10 @@ p{
 #last {
     margin-bottom: 220px;
 }
+
+#preferences-image {
+    position: absolute;
+    width: 20px;
+    margin-left: 335px;
+    margin-top: -22px;
+}
