@@ -118,7 +118,7 @@ header{
 }
 
 .second{
-   top: 147px;
+   top: 157px;
 }
 .post-header{
     display: flex;
@@ -276,9 +276,7 @@ header{
     margin: 0px;
 }
 
-.body2{
-    height: 350px;
-}
+
 .post-text{
     position: static;
     width: 319px;
@@ -331,8 +329,9 @@ header{
     display: flex;
     /* Inside Auto Layout */
 
-    margin: 0px 4px;
+    margin: 10px 4px;
 }
+
 
 .main-content{
     position: static;
