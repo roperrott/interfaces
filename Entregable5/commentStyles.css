@@ -57,7 +57,7 @@
     position: absolute;
     width: 64px;
     height: 63px;
-    top: 14px;
+    top: 25px;
 }
 
 #conversations{
@@ -75,21 +75,21 @@
     position: relative;
     left: -0.54%;
     right: 0%;
-    top: 240px;
+    top: 208px;
     bottom: 1.1%;
 
 }
 
 .separator2{
     position: relative;
-    top: 375px;
+    top: 297px;
     height: 2px;
     opacity: 0.8;
 }
 
 .separator3{
     position: relative;
-    top:465px;
+    top:380px;
 }
 
 .post-hour{
@@ -338,8 +338,8 @@
     position: absolute;
     width: 227px;
     height: 58px;
-    left: 70px;
-    top: 12px;
+    left: 130px;
+    top: 1px;
 
     font-family: Mulish;
     font-style: normal;
@@ -429,3 +429,4 @@ header{
     top: 18px;
     opacity: 70%;
 }
+

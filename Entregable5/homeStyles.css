@@ -29,6 +29,13 @@
     height: 2px;
 }
 
+a{
+    text-decoration:none;
+}
+a :visited {
+    text-decoration:none;
+    
+}
 .header-title{
     position: absolute;
     width: 227px;
@@ -407,7 +414,6 @@ header{
     display: flex;
     flex-direction: column-reverse;
 }
-.content3{}
 
 .like{
     position: static;
