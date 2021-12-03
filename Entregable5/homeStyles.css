@@ -1,5 +1,6 @@
 *{
     font-family: 'Mulish', sans-serif;
+  
 }
 .chat-image {
     width: 64px;
@@ -23,11 +24,6 @@
 }
 
 
-.separator{
-    background-color: black;
-    opacity: 0.2;
-    height: 2px;
-}
 
 a{
     text-decoration:none;
@@ -110,7 +106,6 @@ header{
     left: 327px;
     top: 32px;
     opacity: 70%;
-
 
 }
 
@@ -256,7 +251,7 @@ header{
     height: 8px;
     left: 62px;
     top: 43px;
-
+    border-radius: 50%;
     background: #006C84;
     /* Light / neutral.containerBackground */
 
@@ -620,6 +615,9 @@ section.body-container{
     opacity: 70%;
 
 }
+#home2{
+    display: none;
+}
 
 #calendar{
     position: absolute;
@@ -640,7 +638,9 @@ section.body-container{
     opacity: 70%;
 
 }
-
+#notifications2{
+    display: none;
+}
 #friends{
     position: absolute;
     width: 37px;
@@ -648,6 +648,9 @@ section.body-container{
     left: 249px;
     top: 15px;
     opacity: 70%;
+}
+#friends2{
+    display: none;
 }
 
 #profile{
@@ -663,6 +666,10 @@ section.body-container{
     margin-bottom: 260px;
 }
 
+.logoVet{
+    display: none;
+
+}
 .image-text{
     
     position: absolute;
@@ -683,4 +690,407 @@ section.body-container{
     /* Light / neutral.containerBackground */
 
     color: #FFFFFF;
+}
+
+.search-icon{
+    display: none;
+}
+
+.container-input{
+    display: none;
+}
+
+.escondido{
+    display: none;
+}
+@media only screen and (min-width: 1061px) { /* Umbral de cambio */
+    .top-container{
+        position: relative;
+        width: 1027px;
+        height: 74px;
+    }
+
+    .nameImg{
+        left: 25px;
+        right: 77.66%;
+        margin-top: 70px;
+        margin-left: 45px;
+        width: 300px;
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 20px;
+        /* identical to box height, or 125% */
+
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+
+        /* Light / neutral.labelPrimary */
+
+        color: #282B33;
+        opacity: 95%;
+
+    }
+
+    .container-login{
+        height: auto;
+    }
+
+    .calendarImg{
+        position: absolute;
+        left: 5.82%;
+        right: 89.16%;
+        top: 87.4%;
+        bottom: 73.44%;
+        height: 32px;
+        width: 32px;
+    }
+    .events{
+        position: absolute;
+        left: 13.76%;
+        right: 67.2%;
+        top: 90%;
+        bottom: 72.14%;
+        
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 16px;
+        /* or 100% */
+        
+        display: flex;
+        align-items: center;
+        
+        /* Light / neutral.labelSecondary */
+        
+        color: #3D424D;
+    }
+    .escondido{
+        display: block;
+    }
+
+    .saveImg{
+        position: absolute;
+        left: 5.75%;
+        right: 87.18%;
+        top:115.86%;
+        bottom: 62.37%;
+        height: 32px;
+        width: 32px;
+        
+    }
+    .colection{
+
+        position: absolute;
+        left: 13.76%;
+        right: 67.2%;
+        top:120.86%;
+        bottom: 63.93%;
+        
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 16px;
+        /* or 100% */
+        
+        display: flex;
+        align-items: center;
+        
+        /* Light / neutral.labelSecondary */
+        
+        color: #3D424D;
+    }
+
+    .addFriendImg{
+        position: absolute;
+        left: 5.76%;
+        right: 89.07%;
+        top:140.86%;
+        bottom: 56.9%;
+        height: 32px;
+        width: 32px;
+        
+    }
+
+    .publicidad2{
+        position: absolute;
+        left: 75.1%;
+        right: 6.03%;
+        top: 170.31%;
+        bottom: 9.77%;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        width: 232px;
+        height: 153px;
+    }
+
+    .text-publicidad2{
+        position: absolute;
+        top: 230.31%;
+        left: 77.4%;
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        /* or 114% */
+        color: #3D424D;
+    }
+
+    .publicidad3{
+        position: absolute;
+        left: 75.1%;
+        right: 6.03%;
+        top: 70.31%;
+        bottom: 9.77%;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        width: 232px;
+        height: 153px;
+    }
+
+    .text-publicidad3{
+        position: absolute;
+        left: 77.4%;
+        right: 3.2%;
+        top: 133.15%;
+        bottom: 6.25%;
+
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        /* or 114% */
+        color: #3D424D;
+     
+    }
+    .addFriend{
+        position: absolute;
+        left: 13.67%;
+        right: 67.3%;
+        top:145.86%;
+        bottom: 54.95%;
+
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 16px;
+        /* or 100% */
+
+        display: flex;
+        align-items: center;
+
+        /* Light / neutral.labelSecondary */
+
+        color: #3D424D;
+
+    }
+    .logo-container{
+        display: flex;
+        flex-direction: row;
+        width: 30%;
+        height: 50%;
+    }
+    .logoVet{
+        display: block;
+        position: absolute;
+        left: 2.07%;
+        right: 92.79%;
+        bottom: 91.8%;
+        top: -20px;
+        width: 54.48px;
+        height: 50px;
+    }
+    .search-icon{
+        display: block;
+        width: 25px;
+        height: 25px;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    input{
+        border: white;       
+        background-color: transparent;
+
+        left: 13.76%;
+        right: 64.84%;
+        top: 4.04%;
+        bottom: 93.36%;
+
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        /* or 114% */
+
+
+        /* Light / neutral.labelSecondary */
+
+        color: #3D424D;
+    }
+    
+    .container-input{
+        display: block;
+        width: 280px;
+        height: 38px;
+        display: flex;
+        align-items: flex-start;
+        align-content: center;
+        background-color: #F7F7F7;
+        flex-direction: column;
+        border: black 1px solid;
+        border-radius: 5px;
+        margin-top: 59px;
+        margin-left: 16px;
+    }
+    .container-login{
+        position: relative;
+        width: 1027px;
+        height: auto;
+    }
+    .chat-image {
+        position: absolute;
+        left: 91.26%;
+        right: 6.03%;
+        top: -60%;
+        bottom: 92.03%;
+    }
+    
+    .header-title{
+        display: none;
+    }
+
+    
+    #home{ 
+        display: none;
+    }
+
+    #home2{
+        display: block;
+        position: absolute;
+        left: 37.74%;
+        right: 58.25%;
+        width: 32px;
+        height: 32px;
+        top: -7px;
+        bottom: 92.84%;
+        opacity: 75%;
+    }
+    #conversations{
+        position: absolute;
+        left: 47.3%;
+        right: 49.76%;
+        top: -6px;
+        bottom: 91.93%;
+
+    }
+    .separator{
+        top: -200px;
+        background-color: black;
+        opacity: 0.2;
+        height: 2px;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+    .content{
+        height: auto;
+    }
+
+    #calendar{
+        display: none;
+    }
+
+    #notifications{
+        display: none;
+    }
+
+    #notifications2{
+        display: block;
+        position: absolute;
+        left: 65.7%;
+        right: 36.29%;
+        top: -7px;
+        bottom: 92.69%;
+        height: 32px;
+        width: 32px;
+        opacity: 75%;
+    }
+
+    section{
+        position: absolute;
+        left: 35%;
+        right: 45%;
+        top: 1.56%;
+        bottom: 91.93%;
+    }
+
+    #friends2{
+        display: block;
+        position: absolute;
+        left: 56.01%;
+        right: 42.98%;
+        top: -7px;
+        bottom: 93.1%;
+        height: 32px;
+        width: 32px;
+        opacity: 75%;
+    }
+    #friends{
+        display: none;
+    }
+
+    #profile{
+        display: none;
+    }
+
+    .status-post{
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        left: 62px;
+        top: 43px;
+        border-radius: 50%;
+        background: #006C84;
+        /* Light / neutral.containerBackground */
+    
+        border: 1px solid #FFFFFF;
+        box-sizing: border-box;
+    }
+   .footer-page{
+     display: none;
+   }
+
+   .status{
+        position: fixed;
+        width: 12px;
+        height: 12px;
+        left: 135px;
+        top: -90px;
+        border-radius: 50%;
+        background: #006C84;
+        /* Light / neutral.containerBackground */
+        border: 1px solid #FFFFFF;
+        box-sizing: border-box;
+    }
+   .user-post{
+    
+        position: static;
+        width: 40.63px;
+        height: 41px;
+        left: 16px;
+        top: 7px;
+
+
+        /* Inside Auto Layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 12px;
+    }
 }
