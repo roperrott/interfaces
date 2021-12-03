@@ -90,3 +90,7 @@ p {
     margin-left: 16px;
     margin-right: 16px;
 }
+
+a, a:hover {
+    text-decoration: none;
+}
