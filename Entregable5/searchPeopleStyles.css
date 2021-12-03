@@ -122,3 +122,11 @@ p {
     margin-right: 16px;
     margin-top: 4px;
 }
+
+.search-icon {
+    width: 25px;
+    height: 25px;
+    margin-top: 68px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
