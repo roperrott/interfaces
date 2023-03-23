@@ -1,0 +1,432 @@
+*{
+    font-family: 'Mulish', sans-serif;
+}
+
+.top-container{
+    position: absolute;
+    width: 375px;
+    height: 86px;
+    left: 0px;
+    top: 32px;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.18));
+}
+.chat-image {
+    width: 64px;
+    height: 63px;
+    margin-left: 1px;
+    margin-top: 16px;
+}
+
+
+.chat-notif {
+    position: absolute;
+    width: 64px;
+    height: 63px;
+    border-radius: 50%;
+    margin-left: 16px;
+    margin-right: 16px;
+    
+    top: -25px; 
+    background-image: url(assets/user.jpeg);
+}
+
+.chat1{
+    position: absolute;
+    width: 64px;
+    height: 63px;
+    top: 14px;
+}
+
+.chat2{
+    position: absolute;
+    width: 64px;
+    height: 63px;
+
+    top: 14px;
+
+}
+.chat3{
+    position: absolute;
+    width: 64px;
+    height: 63px;
+    top: 14px;
+
+}
+
+.chat3{
+    position: absolute;
+    width: 64px;
+    height: 63px;
+    top: 25px;
+}
+
+#conversations{
+
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 327px;
+    top: 32px;
+    opacity: 70%;
+}
+
+
+.separator1{
+    position: relative;
+    left: -0.54%;
+    right: 0%;
+    top: 208px;
+    bottom: 1.1%;
+
+}
+
+.separator2{
+    position: relative;
+    top: 297px;
+    height: 2px;
+    opacity: 0.8;
+}
+
+.separator3{
+    position: relative;
+    top:380px;
+}
+
+.post-hour{
+    position: static;
+    width: 74px;
+    height: 16px;
+    left: 0px;
+    top: 0px;
+    margin: 0% !important;
+
+    /* text12 */
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+
+    /* Light / neutral.labelTertiary */
+
+    color: #6C727E;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 4px;
+}
+
+.separator{
+
+    background-color: black;
+    opacity: 0.2;
+    height: 2px;
+}
+
+#back-image {
+    position: absolute;
+    width: 12px;
+    height: auto;
+    top:40px;
+    margin-left: 17px;
+}
+
+
+.name{
+    position: absolute;
+    width: 227px;
+    height: 20px;
+    left: 92px;
+    top: 14px;
+    
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 16px;
+    
+    
+    color: #282B33;
+    
+}
+
+.name2{
+    color: #282B33;
+
+    top: 17px;
+    
+}
+
+.name3{
+    color: #282B33;
+    position: absolute;
+    width: 227px;
+    height: 20px;
+    left: 90px;
+    top: 20px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 16px;
+/* or 114% */
+}
+
+.name4{
+    
+    top: 337px;
+}
+
+.text1{
+    position: absolute;
+    width: 227px;
+    height: 20px;
+    left: 93px;
+    top: 39px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    /* or 123% */
+
+
+    /* Light / neutral.labelSecondary */
+
+    color: #3D424D;
+
+}
+
+.subtext1{
+    position: absolute;
+    width: 96px;
+    height: 16px;
+    left: 93px;
+    top: 59px;
+    
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height, or 123% */
+
+
+    /* Light / neutral.labelTertiary */
+
+    color: #6C727E;
+}
+.text2{
+    position: absolute;
+    width: 201px;
+    height: 20px;
+    left: 92px;
+    top: 36px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    /* or 123% */
+
+
+    /* Light / neutral.labelSecondary */
+
+    color: #3D424D;
+
+}
+
+.subtext2{
+    
+    position: absolute;
+    width: 65px;
+    height: 16px;
+    left: 92px;
+    top: 71px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height, or 123% */
+
+
+    /* Light / neutral.labelTertiary */
+
+    color: #6C727E;
+}
+
+.text3{
+    
+    position: absolute;
+    width: 227px;
+    height: 20px;
+    left: 90px;
+    top: 40px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    /* or 123% */
+}
+.subtext3{
+    
+    position: absolute;
+    width: 80px;
+    height: 16px;
+    left: 90px;
+    top: 61px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+/* identical to box height, or 123% */
+    color: #6C727E;
+}
+
+
+.conv1{
+    
+    position: absolute;
+    width: 373px;
+    height: 91px;
+    left: 4px;
+    top: 125px;
+
+}
+
+.conv2{
+    position: absolute;
+    width: 375px;
+    height: 91px;
+    left: 1px;
+    top: 217px;
+}
+
+.conv3{
+    position: absolute;
+    width: 375px;
+    height: 91px;
+    left: 1px;
+    top: 309px;
+}
+
+.hearth{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 334px;
+    top: 39px;
+
+}
+.header-title{
+    position: absolute;
+    width: 227px;
+    height: 58px;
+    left: 130px;
+    top: 1px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 16px;
+    /* or 80% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #60C5D1;
+    
+}
+
+
+
+.container-login{
+    width: 375px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+
+header{
+    width: 375px;
+    height: 86px;
+}
+
+
+.footer-page{
+    position: fixed;
+    left: 0%;
+    right: 0%;
+    bottom: 0px;
+    height: 60px;
+    background: #FFFFFF;
+}
+
+#home{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 16px;    
+    top: 15px;
+    opacity: 70%;
+
+}
+
+#calendar{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 94px;
+    top: 15px;
+    opacity: 70%;
+
+}
+
+#notifications{
+    position: absolute;
+    width: 32px;
+    height: 34.13px;
+    left: 171.5px;
+    top: 15px;
+    opacity: 70%;
+
+}
+
+#friends{
+    position: absolute;
+    width: 37px;
+    height: 37px;
+    left: 249px;
+    top: 15px;
+    opacity: 70%;
+}
+
+#profile{
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    left: 325px;
+    top: 18px;
+    opacity: 70%;
+}
+

@@ -1,0 +1,100 @@
+*{
+    font-family: 'Mulish', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+a :visited {
+    text-decoration:none;
+    color: black;
+}
+
+#back-image {
+    width: 12px;
+    height: auto;
+    margin-top: 70px;
+    margin-left: 16px;
+    align-self: flex-start;
+}
+
+input {
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.container-input {
+    width: 280px;
+    height: 38px;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    background-color: #F7F7F7;
+    flex-direction: column;
+    border: black 1px solid;
+    border-radius: 5px;
+    margin-top: 59px;
+    margin-left: 16px;
+}
+
+.separator {
+    background-color: black;
+    opacity: 0.2;
+    height: 2px;
+    margin: 0 auto;
+    margin-top: 36px;
+}
+
+.subtitle {
+    color: black;
+    opacity: 0.45;
+    margin-left: 16px;
+    margin-top: 16px;
+}
+
+.title {
+    color: #3D424D;
+    font-size: 20;
+    margin-left: 16px;
+}
+
+.icon-image {
+    height: 18px;
+    width: auto;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 16px;
+    font-size: 14;
+}
+
+.horizontal-container {
+    margin-left: 16px;
+    margin-bottom: 16px;
+}
+
+.search-icon {
+    width: 25px;
+    height: 25px;
+    margin-top: 68px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+a, a:hover {
+    text-decoration: none;
+}

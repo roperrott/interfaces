@@ -1,0 +1,25 @@
+
+#image-big {
+    width: 100%;
+    position: relative;
+}
+
+#image-small {
+    position: absolute;
+    margin-left: auto;
+    bottom: 93px;
+    right: 8px;
+    width: 131px;
+    height: 191px;
+    object-fit: cover;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+}
+.footer-icon {
+    width: 32px;
+    margin-top: 33px;
+    margin-bottom: 23px;
+}

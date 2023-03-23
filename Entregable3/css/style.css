@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: pixelArt;
+}
+
+
+@font-face{
+    font-family: pixelArt;
+    src: url(../fonts/ARCADECLASSIC.TTF);
+    font-weight: bold;
+}
+
+body{
+    background: #231144;
+    display: flex;
+    align-items: center;
+}
+
+.container{
+    overflow: hidden;
+    width: 920px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 100px;    
+    position: relative;
+    background: linear-gradient(#B7D6C7, #FFE2D1);
+    border: 2px solid rgba(0, 0, 0, 0.616);
+}
+
+.transition-super{
+    background: rgb(25, 25, 112);
+    z-index: 1;
+}
+
+.t-rex{
+    width: 84px;
+    height: 300px;
+    position: absolute;
+    bottom: 30px;
+    left: 42px;
+    background: url(../img/dino.png) repeat-x 0px 0px;
+    background-position: bottom;
+    background-size: 336px 84px;
+    background-position-x: 0px;
+    z-index: 5;
+}
+
+.superheroe{
+    background: url(../img/dino-fly.png) repeat-x 0px 0px;
+    bottom: -60px;
+    width: 80px;
+}
+
+/*desplaza la imagen del fondo para que se mueva
+entre las dos fotos que muestran al dinosaurio corriendo*/
+@keyframes animateTRex {
+    from{
+        background-position-x: -84px;
+    }to{
+        background-position-x: -254px;
+    }
+}
+
+@keyframes jump {
+    0% {top: 160px;}
+    20% {top: 20px;}
+    30% {top: 20px;}
+    40% {top: 20px;}
+    50% {top: 20px;}
+    100% {top: 160px;}
+}
+
+@keyframes animateEnemy {
+    from{
+        background-position-x: -84px;
+    }to{
+        background-position-x: -254px;
+    }
+}
+
+@keyframes oneScroll {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -50;
+    }
+}
+
+@keyframes ufoScroll {
+    0% {
+        left: 50%;
+    }
+    25% {
+        left: 0%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+
+@keyframes scroll {
+    0% { background-position-x: 0px; }
+    100% { background-position-x: -1840px; }
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+.hidden {
+    display: none;
+}
+
+.message {
+    position: relative;
+    font-size: 100px;
+    text-align: center;
+    top: 10%;
+    z-index: 6;
+    background-color: rgb(201, 211, 233);
+}
+
+.short-message-container {
+    position: relative;
+    z-index: 6;
+    padding-top: 50px;
+    font-size: large;
+    width: 100%;
+}
+.short-message {
+    text-align: end;
+    padding-right: 15px;
+    animation: blinker 2s linear infinite;
+}
+
+/* animacion por pasos para alternar las dos imagenes
+simulando la corrida del t-rex*/
+.running{
+    animation: animateTRex 0.25s steps(2) infinite;
+}
+
+.jumping{
+    animation: jump 1.5s steps(20) 1;
+}
+
+.layer{
+    position: absolute;
+    background-repeat: repeat-x;
+    background-size: 100% 42px;
+}
+
+.layer-1 {
+    width: 100%;
+    background-image: url(../img/suelo.png);
+    bottom: 0;
+    height: 42px;
+    z-index: 4;
+}
+
+.layer-2 {
+    width: 200%;
+    background-image: url(../img/cactus.png);
+    height: 50px;
+    transform: scale(1, 1.5);
+    bottom: 24px;
+    z-index: 4;
+}
+
+.layer-3 {
+    background-image: url(../img/nube.png);
+    height: 50px;
+    top: 40px;
+    transform: scale(1.5, 3.5);
+    width: 100%;
+    z-index: 3;
+}
+
+.layer-4 {
+    background: url(../img/ufo.png) repeat-x 0px 0px;
+    width: 75px;
+    height: 50px;
+    position: absolute;
+    bottom: 250px;
+    left: 250px;
+    background-position: bottom;
+    background-position-x: 0px;
+    z-index: 5;  
+}
+
+.layer-5 {
+    background: url(../img/sun.png) repeat-x 0px 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.layer-6 {
+    background: url(../img/octopus.png) repeat-x 0px 0px;
+    width: 69px;
+    height: 300px;
+    position: absolute;
+    bottom: 24px;
+    left: 4px;
+    background-position: bottom;
+    background-size: 250px 84px;
+    background-position-x: 0px;
+    z-index: 5;  
+}
+
+.layer-7 {
+    background: url(../img/retro_coin.png) repeat-x 0px 0px;
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    bottom: 124px;
+    left: 50px;
+}
+
+.ground-move{
+    animation: scroll 12s infinite linear;
+}
+
+.ground-super{
+    animation: scroll 3s infinite linear;
+}
+
+.cactus-move{
+    animation: scroll 12s infinite linear;
+}
+
+.cactus-super{
+    animation: scroll 3s infinite linear;
+}
+
+.cloud-move{
+    animation: scroll 200s infinite linear;
+}
+
+.cloud-super{
+    animation: scroll 50s infinite linear;
+}
+
+.ufo-move{
+    animation: ufoScroll 6s infinite ease-in-out;
+}
+
+.ufo-super{
+    animation: ufoScroll 1.5s infinite linear;
+}
+
+.octopus-move{
+    animation: oneScroll 5s infinite linear, animateEnemy 0.25s steps(2) infinite;
+}
+
+.octopus-super{
+    animation: oneScroll 0.75s infinite linear, animateEnemy 0.6s steps(2) infinite;
+}
+
+.coin-move {
+    animation: blinker 1.5s infinite linear, oneScroll 6s infinite linear;
+}
+
+.coin-super {
+    animation: blinker .5s infinite linear, oneScroll 1.5s infinite linear;
+}
+
+.score{
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    z-index: 4;
+}
+
+.game-over{
+    /* display: none; */
+}
